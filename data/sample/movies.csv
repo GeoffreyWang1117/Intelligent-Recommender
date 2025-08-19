@@ -1,0 +1,201 @@
+item_id,title,genres
+1,The Matrix (1991),Horror|Thriller|Sci-Fi
+2,Star Wars (1992),Thriller|Drama
+3,The Godfather (1993),Thriller|Horror|Comedy
+4,Pulp Fiction (1994),Action|Sci-Fi|Horror
+5,Fight Club (1995),Romance|Horror|Sci-Fi
+6,Forrest Gump (1996),Action|Horror|Thriller
+7,The Dark Knight (1997),Drama|Romance|Comedy
+8,Inception (1998),Sci-Fi
+9,Goodfellas (1999),Thriller|Action|Horror
+10,The Shawshank Redemption (2000),Action
+11,Schindler's List (2001),Drama
+12,12 Angry Men (2002),Horror
+13,The Lord of the Rings (2003),Horror|Drama|Sci-Fi
+14,Casablanca (2004),Action
+15,Gone with the Wind (2005),Thriller
+16,The Matrix (2006),Sci-Fi|Comedy|Drama
+17,Star Wars (2007),Sci-Fi
+18,The Godfather (2008),Thriller|Horror|Action
+19,Pulp Fiction (2009),Horror|Comedy|Action
+20,Fight Club (2010),Thriller|Horror
+21,Forrest Gump (2011),Horror|Thriller
+22,The Dark Knight (2012),Romance|Sci-Fi|Comedy
+23,Inception (2013),Action
+24,Goodfellas (2014),Comedy
+25,The Shawshank Redemption (2015),Sci-Fi
+26,Schindler's List (2016),Comedy|Sci-Fi|Horror
+27,12 Angry Men (2017),Sci-Fi|Horror
+28,The Lord of the Rings (2018),Action|Romance|Sci-Fi
+29,Casablanca (2019),Drama|Thriller|Action
+30,Gone with the Wind (1990),Horror
+31,The Matrix (1991),Action
+32,Star Wars (1992),Thriller|Horror
+33,The Godfather (1993),Comedy|Horror|Sci-Fi
+34,Pulp Fiction (1994),Thriller|Sci-Fi|Drama
+35,Fight Club (1995),Sci-Fi|Horror
+36,Forrest Gump (1996),Romance|Action|Drama
+37,The Dark Knight (1997),Drama|Action
+38,Inception (1998),Horror
+39,Goodfellas (1999),Sci-Fi
+40,The Shawshank Redemption (2000),Horror|Thriller
+41,Schindler's List (2001),Action|Drama|Thriller
+42,12 Angry Men (2002),Drama|Romance|Sci-Fi
+43,The Lord of the Rings (2003),Action|Sci-Fi
+44,Casablanca (2004),Action|Comedy|Horror
+45,Gone with the Wind (2005),Sci-Fi
+46,The Matrix (2006),Action|Thriller|Romance
+47,Star Wars (2007),Horror|Sci-Fi
+48,The Godfather (2008),Thriller
+49,Pulp Fiction (2009),Comedy|Action
+50,Fight Club (2010),Sci-Fi|Comedy
+51,Forrest Gump (2011),Comedy
+52,The Dark Knight (2012),Horror|Romance|Drama
+53,Inception (2013),Horror
+54,Goodfellas (2014),Comedy|Drama|Horror
+55,The Shawshank Redemption (2015),Romance|Action|Horror
+56,Schindler's List (2016),Action
+57,12 Angry Men (2017),Drama|Thriller
+58,The Lord of the Rings (2018),Horror
+59,Casablanca (2019),Sci-Fi|Drama|Thriller
+60,Gone with the Wind (1990),Comedy|Romance
+61,The Matrix (1991),Comedy|Romance
+62,Star Wars (1992),Drama
+63,The Godfather (1993),Romance|Drama
+64,Pulp Fiction (1994),Horror
+65,Fight Club (1995),Action|Drama|Thriller
+66,Forrest Gump (1996),Sci-Fi|Romance|Drama
+67,The Dark Knight (1997),Thriller|Horror|Romance
+68,Inception (1998),Horror|Drama|Sci-Fi
+69,Goodfellas (1999),Comedy|Action
+70,The Shawshank Redemption (2000),Romance|Action
+71,Schindler's List (2001),Action
+72,12 Angry Men (2002),Horror|Comedy|Drama
+73,The Lord of the Rings (2003),Comedy|Drama|Romance
+74,Casablanca (2004),Action
+75,Gone with the Wind (2005),Horror|Comedy|Thriller
+76,The Matrix (2006),Sci-Fi|Thriller
+77,Star Wars (2007),Sci-Fi|Drama|Romance
+78,The Godfather (2008),Action|Drama
+79,Pulp Fiction (2009),Sci-Fi|Romance
+80,Fight Club (2010),Drama|Action
+81,Forrest Gump (2011),Sci-Fi|Thriller
+82,The Dark Knight (2012),Sci-Fi|Thriller|Action
+83,Inception (2013),Action|Drama
+84,Goodfellas (2014),Thriller|Drama
+85,The Shawshank Redemption (2015),Action|Horror
+86,Schindler's List (2016),Sci-Fi|Horror|Romance
+87,12 Angry Men (2017),Romance|Sci-Fi|Drama
+88,The Lord of the Rings (2018),Comedy
+89,Casablanca (2019),Action|Thriller|Romance
+90,Gone with the Wind (1990),Horror|Drama
+91,The Matrix (1991),Sci-Fi
+92,Star Wars (1992),Comedy|Sci-Fi
+93,The Godfather (1993),Comedy
+94,Pulp Fiction (1994),Action|Sci-Fi
+95,Fight Club (1995),Sci-Fi|Drama
+96,Forrest Gump (1996),Comedy|Thriller|Horror
+97,The Dark Knight (1997),Sci-Fi
+98,Inception (1998),Horror|Thriller|Romance
+99,Goodfellas (1999),Action
+100,The Shawshank Redemption (2000),Action|Drama|Comedy
+101,Schindler's List (2001),Thriller|Horror|Sci-Fi
+102,12 Angry Men (2002),Horror|Thriller
+103,The Lord of the Rings (2003),Horror|Thriller
+104,Casablanca (2004),Romance|Comedy|Horror
+105,Gone with the Wind (2005),Comedy
+106,The Matrix (2006),Drama|Action
+107,Star Wars (2007),Comedy
+108,The Godfather (2008),Horror
+109,Pulp Fiction (2009),Action|Romance
+110,Fight Club (2010),Thriller
+111,Forrest Gump (2011),Thriller|Comedy
+112,The Dark Knight (2012),Comedy|Sci-Fi
+113,Inception (2013),Sci-Fi
+114,Goodfellas (2014),Horror|Action|Thriller
+115,The Shawshank Redemption (2015),Thriller|Drama|Action
+116,Schindler's List (2016),Sci-Fi|Drama
+117,12 Angry Men (2017),Romance|Action|Horror
+118,The Lord of the Rings (2018),Comedy
+119,Casablanca (2019),Horror|Sci-Fi|Comedy
+120,Gone with the Wind (1990),Drama|Comedy
+121,The Matrix (1991),Action|Sci-Fi
+122,Star Wars (1992),Drama|Thriller
+123,The Godfather (1993),Romance|Sci-Fi
+124,Pulp Fiction (1994),Thriller|Drama|Romance
+125,Fight Club (1995),Drama|Comedy
+126,Forrest Gump (1996),Horror|Thriller|Action
+127,The Dark Knight (1997),Drama
+128,Inception (1998),Action
+129,Goodfellas (1999),Drama|Sci-Fi|Romance
+130,The Shawshank Redemption (2000),Sci-Fi|Thriller
+131,Schindler's List (2001),Thriller|Drama
+132,12 Angry Men (2002),Sci-Fi|Horror|Romance
+133,The Lord of the Rings (2003),Thriller
+134,Casablanca (2004),Thriller
+135,Gone with the Wind (2005),Horror
+136,The Matrix (2006),Thriller|Drama
+137,Star Wars (2007),Thriller|Romance|Sci-Fi
+138,The Godfather (2008),Drama
+139,Pulp Fiction (2009),Action|Thriller|Horror
+140,Fight Club (2010),Action
+141,Forrest Gump (2011),Action
+142,The Dark Knight (2012),Comedy|Horror
+143,Inception (2013),Thriller
+144,Goodfellas (2014),Horror|Action|Comedy
+145,The Shawshank Redemption (2015),Horror
+146,Schindler's List (2016),Sci-Fi|Drama
+147,12 Angry Men (2017),Horror|Comedy
+148,The Lord of the Rings (2018),Thriller
+149,Casablanca (2019),Romance
+150,Gone with the Wind (1990),Horror|Action
+151,The Matrix (1991),Sci-Fi|Action
+152,Star Wars (1992),Action|Thriller
+153,The Godfather (1993),Action|Comedy
+154,Pulp Fiction (1994),Horror|Thriller
+155,Fight Club (1995),Drama|Action|Romance
+156,Forrest Gump (1996),Sci-Fi|Comedy
+157,The Dark Knight (1997),Comedy
+158,Inception (1998),Thriller
+159,Goodfellas (1999),Sci-Fi
+160,The Shawshank Redemption (2000),Drama
+161,Schindler's List (2001),Action|Horror|Thriller
+162,12 Angry Men (2002),Action|Thriller|Comedy
+163,The Lord of the Rings (2003),Thriller
+164,Casablanca (2004),Comedy|Thriller|Romance
+165,Gone with the Wind (2005),Romance|Comedy
+166,The Matrix (2006),Drama
+167,Star Wars (2007),Action|Sci-Fi
+168,The Godfather (2008),Sci-Fi
+169,Pulp Fiction (2009),Action
+170,Fight Club (2010),Action|Thriller
+171,Forrest Gump (2011),Thriller|Drama|Comedy
+172,The Dark Knight (2012),Drama
+173,Inception (2013),Comedy
+174,Goodfellas (2014),Action|Drama|Horror
+175,The Shawshank Redemption (2015),Sci-Fi|Drama|Comedy
+176,Schindler's List (2016),Drama
+177,12 Angry Men (2017),Romance
+178,The Lord of the Rings (2018),Drama|Sci-Fi
+179,Casablanca (2019),Thriller|Romance|Action
+180,Gone with the Wind (1990),Comedy
+181,The Matrix (1991),Comedy
+182,Star Wars (1992),Drama|Sci-Fi|Comedy
+183,The Godfather (1993),Comedy|Action
+184,Pulp Fiction (1994),Horror|Romance|Action
+185,Fight Club (1995),Romance|Horror
+186,Forrest Gump (1996),Thriller
+187,The Dark Knight (1997),Drama|Comedy
+188,Inception (1998),Thriller|Romance|Drama
+189,Goodfellas (1999),Action|Comedy
+190,The Shawshank Redemption (2000),Horror|Romance
+191,Schindler's List (2001),Sci-Fi
+192,12 Angry Men (2002),Romance|Comedy
+193,The Lord of the Rings (2003),Sci-Fi
+194,Casablanca (2004),Sci-Fi|Romance|Comedy
+195,Gone with the Wind (2005),Action
+196,The Matrix (2006),Thriller|Horror
+197,Star Wars (2007),Action|Horror
+198,The Godfather (2008),Sci-Fi|Romance|Comedy
+199,Pulp Fiction (2009),Thriller
+200,Fight Club (2010),Horror|Comedy|Action

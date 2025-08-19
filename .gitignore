@@ -1,0 +1,361 @@
+# Intelligent Recommender System - .gitignore
+# Author: Geoffrey Wang
+# Repository: https://github.com/GeoffreyWang1117/Intelligent-Recommender
+
+# ======================================
+# Python Files
+# ======================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# ======================================
+# Machine Learning & AI Models
+# ======================================
+
+# Trained models and weights
+models/saved/
+teachers/traditional_teachers/models/saved/
+*.pkl
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.model
+*.joblib
+*.checkpoint
+*.ckpt
+
+# Model artifacts
+*.bin
+*.safetensors
+pytorch_model.bin
+tf_model.h5
+
+# FAISS indices
+*.faiss
+*.index
+
+# ======================================
+# Data Files (Large datasets)
+# ======================================
+
+# Large dataset files
+data/raw/
+data/processed/
+data/external/
+data/interim/
+*.csv.gz
+*.parquet
+*.feather
+*.hdf
+data/movieLens*/
+data/ml-*/
+
+# Keep sample data for demos
+!data/sample/
+!data/sample/*.csv
+
+# ======================================
+# Recommendation System Specific
+# ======================================
+
+# Evaluation results cache
+**/evaluation_results/
+**/experiment_cache/
+recommendation_cache/
+user_embeddings/
+item_embeddings/
+
+# Training logs
+training_logs/
+tensorboard_logs/
+wandb/
+mlruns/
+
+# Teacher model outputs
+teachers/*/output/
+teachers/*/cache/
+traditional_evaluation_results/
+traditional_teacher_evaluation_results/
+
+# ======================================
+# Environment & Configuration
+# ======================================
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Virtual environments
+pyvenv.cfg
+
+# Conda environments
+conda-meta/
+
+# ======================================
+# IDE & Editor Files
+# ======================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ======================================
+# Operating System Files
+# ======================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ======================================
+# Temporary & Log Files
+# ======================================
+
+# Logs
+logs/
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+.nyc_output
+
+# Temporary folders
+tmp/
+temp/
+.tmp/
+
+# ======================================
+# Docker & Deployment
+# ======================================
+
+# Docker
+.dockerignore
+
+# Kubernetes
+*.kubeconfig
+
+# ======================================
+# Documentation Build
+# ======================================
+
+# Sphinx documentation
+docs/_build/
+docs/build/
+target/
+
+# mkdocs documentation
+/site
+
+# ======================================
+# Database Files
+# ======================================
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# ======================================
+# GPU & CUDA
+# ======================================
+
+# CUDA cache
+.nv/
+
+# ======================================
+# Specific to this project
+# ======================================
+
+# Temporary report files (keep final documentation)
+**/TEMP_*.md
+**/temp_*.json
+PROJECT_SIMPLIFICATION_REPORT.md
+GITHUB_VERIFICATION_REPORT.md
+BILINGUAL_README_COMPLETION.md
+
+# Old README versions
+README_OLD.md
+README_EN.md
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Large visualization files
+*.png.bak
+algorithm_consistency_matrix_*.png
+
+# Cache directories
+.cache/
+cache/
+
+# ======================================
+# Keep Important Files
+# ======================================
+
+# Force include important configuration files
+!.gitignore
+!.github/
+!docker-compose.yml
+!Dockerfile
+!requirements.txt
+!setup.py
+!pyproject.toml
+!Makefile
+
+# Keep documentation
+!README.md
+!README_CN.md
+!LICENSE
+!ARCHITECTURE.md
+!docs/
+!examples/
+
+# Keep core source code
+!app.py
+!config.py
+!teachers/
+!models/
+!services/
+!utils/
+!tests/
+!scripts/
+
+# Keep small sample data for demo
+!data/sample/
+
+# Keep experiment configuration but not results
+!experiment_results/*.json

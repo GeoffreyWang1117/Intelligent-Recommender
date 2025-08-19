@@ -1,0 +1,98 @@
+{
+  "llama3": {
+    "evaluation_timestamp": "2025-08-18T17:25:16.068717",
+    "dataset_info": {
+      "num_users": 10,
+      "num_items": 24,
+      "num_ratings": 47,
+      "num_recommendations": 65
+    },
+    "accuracy_metrics": {
+      "RMSE": 1.1327,
+      "MAE": 0.8586,
+      "Correlation": 0.1813,
+      "Coverage": 29
+    },
+    "ranking_metrics": {
+      "Precision@5": 0.2571,
+      "Recall@5": 0.4405,
+      "NDCG@5": 0.3737,
+      "MAP@5": 0.2377,
+      "F1@5": 0.3247,
+      "Precision@10": 0.2714,
+      "Recall@10": 0.9048,
+      "NDCG@10": 0.5788,
+      "MAP@10": 0.3878,
+      "F1@10": 0.4176,
+      "Precision@20": 0.2714,
+      "Recall@20": 0.9048,
+      "NDCG@20": 0.5788,
+      "MAP@20": 0.3878,
+      "F1@20": 0.4176
+    },
+    "diversity_metrics": {
+      "Coverage": 0.8333,
+      "Intra_List_Diversity": 0.8668,
+      "Gini_Coefficient": -0.784
+    },
+    "novelty_metrics": {
+      "Novelty": 0.0,
+      "Serendipity": 0.1098
+    },
+    "overall_score": {
+      "overall_score": 0.636,
+      "accuracy_score": 0.7735,
+      "relevance_score": 0.585,
+      "diversity_score": 0.85,
+      "novelty_score": 0.0
+    }
+  },
+  "qwen3": {
+    "evaluation_timestamp": "2025-08-18T17:25:16.081333",
+    "dataset_info": {
+      "num_users": 10,
+      "num_items": 24,
+      "num_ratings": 47,
+      "num_recommendations": 75
+    },
+    "accuracy_metrics": {
+      "RMSE": 1.3921,
+      "MAE": 1.125,
+      "Correlation": -0.074,
+      "Coverage": 36
+    },
+    "ranking_metrics": {
+      "Precision@5": 0.325,
+      "Recall@5": 0.5333,
+      "NDCG@5": 0.4387,
+      "MAP@5": 0.3084,
+      "F1@5": 0.4039,
+      "Precision@10": 0.3,
+      "Recall@10": 0.9375,
+      "NDCG@10": 0.648,
+      "MAP@10": 0.4788,
+      "F1@10": 0.4545,
+      "Precision@20": 0.3,
+      "Recall@20": 0.9375,
+      "NDCG@20": 0.648,
+      "MAP@20": 0.4788,
+      "F1@20": 0.4545
+    },
+    "diversity_metrics": {
+      "Coverage": 0.9,
+      "Intra_List_Diversity": 0.8715,
+      "Gini_Coefficient": -0.8188
+    },
+    "novelty_metrics": {
+      "Novelty": 0.0,
+      "Serendipity": 0.1056
+    },
+    "overall_score": {
+      "overall_score": 0.645,
+      "accuracy_score": 0.7216,
+      "relevance_score": 0.6285,
+      "diversity_score": 0.8858,
+      "novelty_score": 0.0
+    }
+  }
+}

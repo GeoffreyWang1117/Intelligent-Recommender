@@ -1,0 +1,54 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+
+Copyright (c) 2025 Geoffrey Wang
+
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+You are free to:
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+Under the following terms:
+  Attribution — You must give appropriate credit, provide a link to the license, and 
+                indicate if changes were made. You may do so in any reasonable manner, 
+                but not in any way that suggests the licensor endorses you or your use.
+
+  NonCommercial — You may not use the material for commercial purposes.
+
+  ShareAlike — If you remix, transform, or build upon the material, you must distribute 
+               your contributions under the same license as the original.
+
+  No additional restrictions — You may not apply legal terms or technological measures 
+                             that legally restrict others from doing anything the license permits.
+
+Full license text available at: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+This is a human-readable summary of (and not a substitute for) the license.
+The full legal text is available at the above URL.
+
+================================================================================
+
+Project: Intelligent Recommender System
+Author: Geoffrey Wang
+GitHub: https://github.com/GeoffreyWang1117/Intelligent-Recommender
+Description: A dual-teacher recommendation system combining traditional machine 
+             learning algorithms with large language models for intelligent 
+             movie recommendations.
+
+Key Features:
+- Traditional Teachers: 6 state-of-the-art recommendation algorithms
+- LLM Teachers: Llama3 (English) + Qwen3 (Chinese) dual-language support
+- Comprehensive evaluation framework with 4-category metrics
+- Production-ready Docker deployment
+- Complete documentation and phase summaries
+
+Academic and Research Use:
+This project is particularly suited for:
+- Educational purposes in recommendation system courses
+- Research on hybrid recommendation architectures
+- Comparative studies between traditional and LLM-based approaches
+- Open-source contribution to the recommendation system community
+
+For commercial use, please contact the author for licensing arrangements.

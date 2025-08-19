@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线推荐系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .control-group {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .control-group h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e1e8ed;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .result-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .recommendation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .recommendation-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .item-info {
+            flex: 1;
+            margin-right: 15px;
+        }
+        
+        .item-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 4px;
+        }
+        
+        .item-details {
+            color: #666;
+            font-size: 0.9em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .item-id {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            color: #495057;
+        }
+        
+        .item-year {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+        
+        .item-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .genre-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .item-score {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .error {
+            background: #ffe6e6;
+            color: #d63031;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #d63031;
+            margin: 10px 0;
+        }
+        
+        .success {
+            background: #e6f7e6;
+            color: #00b894;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #00b894;
+            margin: 10px 0;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-healthy {
+            background: #00b894;
+        }
+        
+        .status-unhealthy {
+            background: #d63031;
+        }
+        
+        .model-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .info-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .info-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .results {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 智能推荐系统</h1>
+            <p>基于SVD算法的协同过滤推荐引擎</p>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <h3>🔍 用户推荐</h3>
+                <div class="form-group">
+                    <label for="userId">用户ID (1-500):</label>
+                    <input type="number" id="userId" min="1" max="500" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="topK">推荐数量:</label>
+                    <select id="topK">
+                        <option value="5">5个</option>
+                        <option value="10" selected>10个</option>
+                        <option value="15">15个</option>
+                        <option value="20">20个</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="getUserRecommendations()">获取推荐</button>
+            </div>
+            
+            <div class="control-group">
+                <h3>🎬 相似物品</h3>
+                <div class="form-group">
+                    <label for="itemId">物品ID (1-200):</label>
+                    <input type="number" id="itemId" min="1" max="200" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="similarK">相似数量:</label>
+                    <select id="similarK">
+                        <option value="5">5个</option>
+                        <option value="10" selected>10个</option>
+                        <option value="15">15个</option>
+                        <option value="20">20个</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="getSimilarItems()">查找相似</button>
+            </div>
+        </div>
+        
+        <div class="results">
+            <div class="result-section">
+                <h3>📊 系统状态</h3>
+                <div id="systemStatus">
+                    <div class="loading">正在检查系统状态...</div>
+                </div>
+            </div>
+            
+            <div class="result-section">
+                <h3>ℹ️ 模型信息</h3>
+                <div id="modelInfo">
+                    <div class="loading">正在加载模型信息...</div>
+                </div>
+            </div>
+            
+            <div class="result-section">
+                <h3>👤 用户推荐</h3>
+                <div id="userRecommendations">
+                    <p style="color: #666; text-align: center; padding: 20px;">
+                        请输入用户ID并点击"获取推荐"按钮
+                    </p>
+                </div>
+            </div>
+            
+            <div class="result-section">
+                <h3>🔗 相似物品</h3>
+                <div id="similarItems">
+                    <p style="color: #666; text-align: center; padding: 20px;">
+                        请输入物品ID并点击"查找相似"按钮
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载时获取系统状态和模型信息
+        window.onload = function() {
+            checkSystemHealth();
+            getModelInfo();
+        };
+
+        async function checkSystemHealth() {
+            try {
+                const response = await fetch('/health');
+                const data = await response.json();
+                
+                const statusDiv = document.getElementById('systemStatus');
+                const isHealthy = data.status === 'healthy';
+                
+                statusDiv.innerHTML = `
+                    <div class="${isHealthy ? 'success' : 'error'}">
+                        <span class="status-indicator ${isHealthy ? 'status-healthy' : 'status-unhealthy'}"></span>
+                        系统状态: ${isHealthy ? '正常运行' : '异常'}
+                    </div>
+                    <div class="model-info">
+                        <div class="info-card">
+                            <div class="info-value">${data.services?.svd_model ? '✅' : '❌'}</div>
+                            <div class="info-label">SVD模型</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-value">${data.services?.faiss_index ? '✅' : '❌'}</div>
+                            <div class="info-label">FAISS索引</div>
+                        </div>
+                    </div>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
+                        最后更新: ${new Date(data.timestamp).toLocaleString()}
+                    </p>
+                `;
+            } catch (error) {
+                document.getElementById('systemStatus').innerHTML = `
+                    <div class="error">无法连接到推荐服务</div>
+                `;
+            }
+        }
+
+        async function getModelInfo() {
+            try {
+                const response = await fetch('/info');
+                const data = await response.json();
+                
+                document.getElementById('modelInfo').innerHTML = `
+                    <div class="model-info">
+                        <div class="info-card">
+                            <div class="info-value">${data.model_type}</div>
+                            <div class="info-label">模型类型</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-value">${data.n_components}</div>
+                            <div class="info-label">特征维度</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-value">${data.n_users}</div>
+                            <div class="info-label">用户数量</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-value">${data.n_items}</div>
+                            <div class="info-label">物品数量</div>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('modelInfo').innerHTML = `
+                    <div class="error">无法获取模型信息</div>
+                `;
+            }
+        }
+
+        async function getUserRecommendations() {
+            const userId = document.getElementById('userId').value;
+            const topK = document.getElementById('topK').value;
+            
+            if (!userId || userId < 1 || userId > 500) {
+                document.getElementById('userRecommendations').innerHTML = `
+                    <div class="error">请输入有效的用户ID (1-500)</div>
+                `;
+                return;
+            }
+            
+            document.getElementById('userRecommendations').innerHTML = `
+                <div class="loading">正在为用户 ${userId} 生成推荐...</div>
+            `;
+            
+            try {
+                const response = await fetch(`/recommend?user_id=${userId}&top_k=${topK}`);
+                const data = await response.json();
+                
+                if (data.error) {
+                    document.getElementById('userRecommendations').innerHTML = `
+                        <div class="error">${data.error}</div>
+                    `;
+                    return;
+                }
+                
+                let html = `
+                    <div class="success">
+                        为用户 ${data.user_id} 生成了 ${data.count} 个推荐
+                    </div>
+                `;
+                
+                if (data.recommendations && data.recommendations.length > 0) {
+                    data.recommendations.forEach((rec, index) => {
+                        const genres = rec.genre_list ? rec.genre_list.map(g => 
+                            `<span class="genre-tag">${g}</span>`
+                        ).join('') : '';
+                        
+                        html += `
+                            <div class="recommendation-item">
+                                <div class="item-info">
+                                    <div class="item-title">${rec.title}</div>
+                                    <div class="item-details">
+                                        <span class="item-id">ID: ${rec.item_id}</span>
+                                        ${rec.year ? `<span class="item-year">${rec.year}</span>` : ''}
+                                        <span style="color: #666;">排名: ${index + 1}</span>
+                                    </div>
+                                    <div class="item-genres">${genres}</div>
+                                </div>
+                                <div class="item-score">${rec.score.toFixed(3)}</div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html += '<p style="color: #666; text-align: center;">暂无推荐结果</p>';
+                }
+                
+                document.getElementById('userRecommendations').innerHTML = html;
+            } catch (error) {
+                document.getElementById('userRecommendations').innerHTML = `
+                    <div class="error">获取推荐失败: ${error.message}</div>
+                `;
+            }
+        }
+
+        async function getSimilarItems() {
+            const itemId = document.getElementById('itemId').value;
+            const topK = document.getElementById('similarK').value;
+            
+            if (!itemId || itemId < 1 || itemId > 200) {
+                document.getElementById('similarItems').innerHTML = `
+                    <div class="error">请输入有效的物品ID (1-200)</div>
+                `;
+                return;
+            }
+            
+            document.getElementById('similarItems').innerHTML = `
+                <div class="loading">正在查找物品 ${itemId} 的相似物品...</div>
+            `;
+            
+            try {
+                const response = await fetch(`/similar?item_id=${itemId}&top_k=${topK}`);
+                const data = await response.json();
+                
+                if (data.error) {
+                    document.getElementById('similarItems').innerHTML = `
+                        <div class="error">${data.error}</div>
+                    `;
+                    return;
+                }
+                
+                let html = `
+                    <div class="success">
+                        找到了 ${data.count} 个与 "${data.item_info.title}" 相似的物品
+                    </div>
+                    <div class="recommendation-item" style="border-left-color: #00b894;">
+                        <div class="item-info">
+                            <div class="item-title">🎯 目标电影: ${data.item_info.title}</div>
+                            <div class="item-details">
+                                <span class="item-id">ID: ${data.item_id}</span>
+                            </div>
+                            <div class="item-genres">${data.item_info.genres.split('|').map(g => 
+                                `<span class="genre-tag">${g}</span>`
+                            ).join('')}</div>
+                        </div>
+                    </div>
+                `;
+                
+                if (data.similar_items && data.similar_items.length > 0) {
+                    data.similar_items.forEach((item, index) => {
+                        const genres = item.genre_list ? item.genre_list.map(g => 
+                            `<span class="genre-tag">${g}</span>`
+                        ).join('') : '';
+                        
+                        html += `
+                            <div class="recommendation-item">
+                                <div class="item-info">
+                                    <div class="item-title">${item.title}</div>
+                                    <div class="item-details">
+                                        <span class="item-id">ID: ${item.item_id}</span>
+                                        ${item.year ? `<span class="item-year">${item.year}</span>` : ''}
+                                        <span style="color: #666;">相似度排名: ${index + 1}</span>
+                                    </div>
+                                    <div class="item-genres">${genres}</div>
+                                </div>
+                                <div class="item-score">${(item.score * 100).toFixed(1)}%</div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html += '<p style="color: #666; text-align: center;">暂无相似物品</p>';
+                }
+                
+                document.getElementById('similarItems').innerHTML = html;
+            } catch (error) {
+                document.getElementById('similarItems').innerHTML = `
+                    <div class="error">获取相似物品失败: ${error.message}</div>
+                `;
+            }
+        }
+        
+        // 添加回车键支持
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (document.activeElement.id === 'userId' || document.activeElement.id === 'topK') {
+                    getUserRecommendations();
+                } else if (document.activeElement.id === 'itemId' || document.activeElement.id === 'similarK') {
+                    getSimilarItems();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
