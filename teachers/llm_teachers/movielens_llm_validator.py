@@ -46,15 +46,40 @@ class MovieLensLLMValidator:
         # 验证指标
         self.metrics_results = {}
         
-    def load_movielens_data(self, dataset_size: str = "small") -> bool:
+    def load_movielens_data(self, dataset_size: str = "sample") -> bool:
         """
         加载MovieLens数据集
         
         Args:
-            dataset_size: "small" (100k) 或 "medium" (1M) 或 "large" (25M)
+            dataset_size: "sample" (data/movielens) 或 "small" (100k) 或 "medium" (1M) 或 "large" (25M)
         """
         try:
-            if dataset_size == "small":
+            if dataset_size == "sample":
+                # 使用data/movielens文件夹中的样本数据
+                ratings_file = Path("data/movielens/ratings.csv")
+                movies_file = Path("data/movielens/movies.csv")
+                users_file = Path("data/movielens/users.csv")
+                
+                if not all([ratings_file.exists(), movies_file.exists(), users_file.exists()]):
+                    print("❌ MovieLens样本数据文件不存在")
+                    print("请检查 data/movielens/ 文件夹")
+                    return False
+                
+                # 加载评分数据
+                self.ratings = pd.read_csv(ratings_file)
+                # 确保列名一致
+                if 'item_id' in self.ratings.columns:
+                    self.ratings = self.ratings.rename(columns={'item_id': 'movie_id'})
+                
+                # 加载电影数据
+                self.movies = pd.read_csv(movies_file)
+                if 'item_id' in self.movies.columns:
+                    self.movies = self.movies.rename(columns={'item_id': 'movie_id'})
+                
+                # 加载用户数据
+                self.users = pd.read_csv(users_file)
+                
+            elif dataset_size == "small":
                 # MovieLens 100K dataset
                 ratings_file = self.data_path / "u.data"
                 movies_file = self.data_path / "u.item"

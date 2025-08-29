@@ -1,16 +1,16 @@
 {
   "llama3": {
-    "overall_score": 0.636,
-    "accuracy_rmse": 1.1327,
-    "precision_at_10": 0.2714,
-    "coverage": 0.8333,
+    "overall_score": 0.28,
+    "accuracy_rmse": 0.8,
+    "precision_at_10": 0.0,
+    "coverage": 0.28,
     "novelty": 0.0
   },
   "qwen3": {
-    "overall_score": 0.645,
-    "accuracy_rmse": 1.3921,
-    "precision_at_10": 0.3,
-    "coverage": 0.9,
+    "overall_score": 0.3528,
+    "accuracy_rmse": 0.893,
+    "precision_at_10": 0.0375,
+    "coverage": 0.325,
     "novelty": 0.0
   }
 }

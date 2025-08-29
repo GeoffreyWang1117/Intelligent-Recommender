@@ -90,8 +90,12 @@ class CompleteLLMValidationExperiment:
         """准备实验数据"""
         print("📊 准备实验数据...")
         
-        # 尝试加载真实数据，失败则使用样本数据
-        if not self.validator.load_movielens_data("small"):
+        # 优先尝试加载sample数据
+        if self.validator.load_movielens_data("sample"):
+            print("✅ 成功加载data/movielens中的MovieLens数据")
+        elif self.validator.load_movielens_data("small"):
+            print("✅ 成功加载标准MovieLens 100K数据")
+        else:
             print("⚠️  真实MovieLens数据不可用，使用样本数据")
             if not self.validator.create_sample_data():
                 return False

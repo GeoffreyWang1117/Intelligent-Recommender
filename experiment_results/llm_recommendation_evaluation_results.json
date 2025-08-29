@@ -1,97 +1,97 @@
 {
   "llama3": {
-    "evaluation_timestamp": "2025-08-18T17:25:16.068717",
+    "evaluation_timestamp": "2025-08-27T00:23:29.526116",
     "dataset_info": {
       "num_users": 10,
-      "num_items": 24,
-      "num_ratings": 47,
-      "num_recommendations": 65
+      "num_items": 22,
+      "num_ratings": 24,
+      "num_recommendations": 70
     },
     "accuracy_metrics": {
-      "RMSE": 1.1327,
-      "MAE": 0.8586,
-      "Correlation": 0.1813,
-      "Coverage": 29
+      "RMSE": 0.8,
+      "MAE": 0.8,
+      "Correlation": 0,
+      "Coverage": 1
     },
     "ranking_metrics": {
-      "Precision@5": 0.2571,
-      "Recall@5": 0.4405,
-      "NDCG@5": 0.3737,
-      "MAP@5": 0.2377,
-      "F1@5": 0.3247,
-      "Precision@10": 0.2714,
-      "Recall@10": 0.9048,
-      "NDCG@10": 0.5788,
-      "MAP@10": 0.3878,
-      "F1@10": 0.4176,
-      "Precision@20": 0.2714,
-      "Recall@20": 0.9048,
-      "NDCG@20": 0.5788,
-      "MAP@20": 0.3878,
-      "F1@20": 0.4176
+      "Precision@5": 0.0,
+      "Recall@5": 0.0,
+      "NDCG@5": 0.0,
+      "MAP@5": 0.0,
+      "F1@5": 0.0,
+      "Precision@10": 0.0,
+      "Recall@10": 0.0,
+      "NDCG@10": 0.0,
+      "MAP@10": 0.0,
+      "F1@10": 0.0,
+      "Precision@20": 0.0,
+      "Recall@20": 0.0,
+      "NDCG@20": 0.0,
+      "MAP@20": 0.0,
+      "F1@20": 0.0
     },
     "diversity_metrics": {
-      "Coverage": 0.8333,
-      "Intra_List_Diversity": 0.8668,
-      "Gini_Coefficient": -0.784
+      "Coverage": 0.28,
+      "Intra_List_Diversity": 0.0,
+      "Gini_Coefficient": -0.8824
     },
     "novelty_metrics": {
       "Novelty": 0.0,
-      "Serendipity": 0.1098
+      "Serendipity": 0.5546
     },
     "overall_score": {
-      "overall_score": 0.636,
-      "accuracy_score": 0.7735,
-      "relevance_score": 0.585,
-      "diversity_score": 0.85,
+      "overall_score": 0.28,
+      "accuracy_score": 0.84,
+      "relevance_score": 0.0,
+      "diversity_score": 0.14,
       "novelty_score": 0.0
     }
   },
   "qwen3": {
-    "evaluation_timestamp": "2025-08-18T17:25:16.081333",
+    "evaluation_timestamp": "2025-08-27T00:23:29.535885",
     "dataset_info": {
       "num_users": 10,
-      "num_items": 24,
-      "num_ratings": 47,
-      "num_recommendations": 75
+      "num_items": 22,
+      "num_ratings": 24,
+      "num_recommendations": 80
     },
     "accuracy_metrics": {
-      "RMSE": 1.3921,
-      "MAE": 1.125,
-      "Correlation": -0.074,
-      "Coverage": 36
+      "RMSE": 0.893,
+      "MAE": 0.775,
+      "Correlation": -0.2111,
+      "Coverage": 4
     },
     "ranking_metrics": {
-      "Precision@5": 0.325,
-      "Recall@5": 0.5333,
-      "NDCG@5": 0.4387,
-      "MAP@5": 0.3084,
-      "F1@5": 0.4039,
-      "Precision@10": 0.3,
-      "Recall@10": 0.9375,
-      "NDCG@10": 0.648,
-      "MAP@10": 0.4788,
-      "F1@10": 0.4545,
-      "Precision@20": 0.3,
-      "Recall@20": 0.9375,
-      "NDCG@20": 0.648,
-      "MAP@20": 0.4788,
-      "F1@20": 0.4545
+      "Precision@5": 0.025,
+      "Recall@5": 0.1429,
+      "NDCG@5": 0.125,
+      "MAP@5": 0.125,
+      "F1@5": 0.0426,
+      "Precision@10": 0.0375,
+      "Recall@10": 0.3333,
+      "NDCG@10": 0.1836,
+      "MAP@10": 0.147,
+      "F1@10": 0.0674,
+      "Precision@20": 0.0375,
+      "Recall@20": 0.3333,
+      "NDCG@20": 0.1836,
+      "MAP@20": 0.147,
+      "F1@20": 0.0674
     },
     "diversity_metrics": {
-      "Coverage": 0.9,
-      "Intra_List_Diversity": 0.8715,
-      "Gini_Coefficient": -0.8188
+      "Coverage": 0.325,
+      "Intra_List_Diversity": 0.0,
+      "Gini_Coefficient": -0.8792
     },
     "novelty_metrics": {
       "Novelty": 0.0,
-      "Serendipity": 0.1056
+      "Serendipity": 0.561
     },
     "overall_score": {
-      "overall_score": 0.645,
-      "accuracy_score": 0.7216,
-      "relevance_score": 0.6285,
-      "diversity_score": 0.8858,
+      "overall_score": 0.3528,
+      "accuracy_score": 0.8214,
+      "relevance_score": 0.1848,
+      "diversity_score": 0.1625,
       "novelty_score": 0.0
     }
   }
