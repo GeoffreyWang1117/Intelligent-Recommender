@@ -69,14 +69,19 @@
 
 > **📖 [完整文档索引](DOCUMENTATION_INDEX.md)** - 浏览所有项目文档和开发记录
 
-### 🎯 项目阶段文档
-- **[Phase 1 完成总结](PHASE_1_COMPLETION_SUMMARY.md)** - 第一阶段开发成果与指标
-- **[项目阶段总结](PROJECT_PHASE_SUMMARY.md)** - 完整项目阶段性总结
+### 📋 主规划文档
+- **[🎯 项目总体规划书](PROJECT_MASTER_PLAN.md)** - **主计划书** - 详细实施规划与时间表
+- **[📊 项目完成状态](PROJECT_COMPLETION_STATUS.md)** - 项目完成状态报告 (78.3%)
 
 ### 🏗️ 系统架构文档
 - **[系统架构](ARCHITECTURE.md)** - 整体架构设计与技术选型
 - **[最终架构文档](docs/FINAL_ARCHITECTURE.md)** - 详细技术架构规范
 - **[API文档](docs/api.md)** - 系统API接口文档
+
+### 📁 归档文档
+- **[📚 归档规划文档](archives/docs/planning/)** - 历史规划与策略文档
+- **[📈 归档阶段总结](archives/docs/phase_summaries/)** - 各阶段完成总结归档
+- **[🔗 归档分支记录](archives/docs/branch_summaries/)** - 分支开发记录归档
 
 ### 🤖 Teacher系统文档
 - **[传统Teachers](teachers/traditional_teachers/README.md)** - 6个ML算法实现详情

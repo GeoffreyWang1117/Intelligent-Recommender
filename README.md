@@ -76,14 +76,19 @@
 
 > **📖 [Complete Documentation Index](DOCUMENTATION_INDEX.md)** - Navigate all project documents and development records
 
-### 🎯 Project Phase Documentation
-- **[Phase 1 Completion Summary](PHASE_1_COMPLETION_SUMMARY.md)** - First phase achievements and metrics
-- **[Project Phase Summary](PROJECT_PHASE_SUMMARY.md)** - Comprehensive project phase summary
+### 📋 Master Planning Documentation
+- **[🎯 PROJECT MASTER PLAN](PROJECT_MASTER_PLAN.md)** - **主计划书** - 项目总体规划与详细实施计划
+- **[📊 Project Completion Status](PROJECT_COMPLETION_STATUS.md)** - 项目完成状态报告 (78.3%)
 
 ### 🏗️ System Architecture Documentation
 - **[System Architecture](ARCHITECTURE.md)** - Overall architecture design and technology stack
 - **[Final Architecture](docs/FINAL_ARCHITECTURE.md)** - Detailed technical architecture specifications
 - **[API Documentation](docs/api.md)** - System API interface documentation
+
+### 📁 Archived Documentation
+- **[📚 Archived Planning Documents](archives/docs/planning/)** - 历史规划与策略文档
+- **[📈 Archived Phase Summaries](archives/docs/phase_summaries/)** - 各阶段完成总结归档
+- **[🔗 Archived Branch Records](archives/docs/branch_summaries/)** - 分支开发记录归档
 
 ### 🤖 Teacher System Documentation
 - **[Traditional Teachers](teachers/traditional_teachers/README.md)** - 6 ML algorithms implementation details

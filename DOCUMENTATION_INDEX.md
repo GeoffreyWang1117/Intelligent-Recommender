@@ -11,18 +11,33 @@ This document provides a comprehensive index of all development records, technic
 - **[README.md](README.md)** - Main English documentation
 - **[README_CN.md](README_CN.md)** - Chinese version documentation
 
+### 📋 Master Planning Documents  
+- **[PROJECT_MASTER_PLAN.md](PROJECT_MASTER_PLAN.md)** - 🎯 **主计划书** - 项目总体规划与实施计划
+- **[PROJECT_COMPLETION_STATUS.md](PROJECT_COMPLETION_STATUS.md)** - 项目完成状态报告 (78.3%)
+
 ### System Architecture
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Overall system architecture
 - **[Final Architecture](docs/FINAL_ARCHITECTURE.md)** - Detailed technical specifications
 - **[API Documentation](docs/api.md)** - REST API reference
 
+### 📁 Archived Documents
+- **[Archived Planning Documents](archives/docs/planning/)** - 历史规划文档
+- **[Archived Phase Summaries](archives/docs/phase_summaries/)** - 阶段总结归档
+- **[Archived Branch Summaries](archives/docs/branch_summaries/)** - 分支记录归档
+
 ---
 
 ## 📊 Project Development Records
 
-### Phase Completion Documents
-- **[Phase 1 Completion Summary](PHASE_1_COMPLETION_SUMMARY.md)** - First phase achievements and metrics
-- **[Project Phase Summary](PROJECT_PHASE_SUMMARY.md)** - Comprehensive project development summary
+### 🔄 Current Active Documents
+- **[PROJECT_MASTER_PLAN.md](PROJECT_MASTER_PLAN.md)** - 📋 **当前主计划书** - 详细实施规划
+- **[PROJECT_COMPLETION_STATUS.md](PROJECT_COMPLETION_STATUS.md)** - 📊 项目完成状态 (78.3%)
+
+### 📁 Archived Historical Documents  
+- **[Phase 1 Completion Summary](archives/docs/phase_summaries/PHASE_1_COMPLETION_SUMMARY.md)** *(已归档)* - First phase achievements
+- **[Project Phase Summary](archives/docs/phase_summaries/PROJECT_PHASE_SUMMARY.md)** *(已归档)* - Development summary
+- **[Fisher PAKD Experiment Summary](archives/docs/phase_summaries/FISHER_PAKD_EXPERIMENT_SUMMARY.md)** *(已归档)* - Fisher PAKD results
+- **[Complete Documentation Archive](archives/docs/README.md)** - 📁 归档文档导航
 
 ### Performance & Analysis Reports
 - **[Final 6 Teacher Models CUDA Completion](archives/reports/FINAL_6_TEACHER_MODELS_CUDA_COMPLETION.md)** - CUDA optimization results
