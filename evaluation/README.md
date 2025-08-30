@@ -1,4 +1,30 @@
-# Evaluation 模块说明
+# 📊 Evaluation Framework
+## Complete Evaluation System for Online Inference Recommender
+
+**目录整理日期**: 2025年8月29日  
+**整理原因**: 统一分散的评估结果和实验数据，整理目录结构  
+
+---
+
+## 📁 统一后的目录结构
+
+### 📈 evaluation/results/
+包含所有算法性能评估结果和可视化报告 (原evaluation_results/)
+
+- `ALGORITHM_PERFORMANCE_ANALYSIS.md` - 算法性能分析报告
+- `COMPLETE_EVALUATION_REPORT.md` - 完整评估报告  
+- `complete_evaluation_results.csv/json` - 评估结果数据
+- `comprehensive_performance.png` - 综合性能可视化
+- `ranking_metrics_heatmap.png` - 排序指标热力图
+- `archived_old_results/` - 历史评估结果归档
+
+### 🧪 evaluation/experiments/
+包含实验性评估和特殊实验结果 (原experiment_results/)
+
+- `experiment_summary.json` - 实验总结
+- `llm_recommendation_evaluation_results.json` - LLM推荐评估结果
+
+---
 
 ## 文件结构
 

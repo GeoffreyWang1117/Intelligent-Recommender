@@ -1,0 +1,86 @@
+{
+  "SVD": {
+    "RMSE": 2.5331456924035303,
+    "MAE": 2.301158006456619,
+    "Coverage": 1.0,
+    "Training_Time": 21.093482,
+    "Sample_Size": 1000,
+    "Error_Count": 0,
+    "Performance_Grade": "D",
+    "Performance_Score": 65,
+    "Efficiency_Grade": "A",
+    "Prediction_Accuracy": 100.0
+  },
+  "DeepFM": {
+    "RMSE": 1.5743948746979772,
+    "MAE": 1.238758794784546,
+    "Coverage": 1.0,
+    "Training_Time": 45.365445,
+    "Sample_Size": 1000,
+    "Error_Count": 0,
+    "Performance_Grade": "C",
+    "Performance_Score": 75,
+    "Efficiency_Grade": "B",
+    "Prediction_Accuracy": 100.0
+  },
+  "DCNv2": {
+    "RMSE": 1.1852400026634493,
+    "MAE": 0.9267845806069672,
+    "Coverage": 1.0,
+    "Training_Time": 141.984984,
+    "Sample_Size": 1000,
+    "Error_Count": 0,
+    "Performance_Grade": "B",
+    "Performance_Score": 85,
+    "Efficiency_Grade": "D",
+    "Prediction_Accuracy": 100.0
+  },
+  "AutoInt": {
+    "RMSE": 1.0104558705898523,
+    "MAE": 0.7711270622015,
+    "Coverage": 1.0,
+    "Training_Time": 73.840728,
+    "Sample_Size": 1000,
+    "Error_Count": 0,
+    "Performance_Grade": "B",
+    "Performance_Score": 85,
+    "Efficiency_Grade": "C",
+    "Prediction_Accuracy": 100.0
+  },
+  "xDeepFM": {
+    "RMSE": 1.1348524879166066,
+    "MAE": 0.8642747849747539,
+    "Coverage": 1.0,
+    "Training_Time": 73.064092,
+    "Sample_Size": 1000,
+    "Error_Count": 0,
+    "Performance_Grade": "B",
+    "Performance_Score": 85,
+    "Efficiency_Grade": "C",
+    "Prediction_Accuracy": 100.0
+  },
+  "Transformer4Rec": {
+    "RMSE": 2.6700232682325793,
+    "MAE": 2.4500642509528983,
+    "Coverage": 1.0,
+    "Training_Time": 3.952316,
+    "Sample_Size": 1000,
+    "Error_Count": 0,
+    "Performance_Grade": "D",
+    "Performance_Score": 65,
+    "Efficiency_Grade": "A",
+    "Prediction_Accuracy": 100.0
+  },
+  "DIN": {
+    "RMSE": 1.113960765250311,
+    "MAE": 0.8421163560152054,
+    "Coverage": 1.0,
+    "Training_Time": 58.71997,
+    "Sample_Size": 1000,
+    "Error_Count": 0,
+    "Performance_Grade": "B",
+    "Performance_Score": 85,
+    "Efficiency_Grade": "B",
+    "Prediction_Accuracy": 100.0
+  }
+}
