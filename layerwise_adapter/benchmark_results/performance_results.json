@@ -1,0 +1,98 @@
+{
+  "model_sizes": {
+    "tiny": {
+      "total_parameters": 158486,
+      "trainable_parameters": 158486,
+      "model_size_mb": 0.6045761108398438,
+      "embedding_layer_params": 77312,
+      "interaction_layer_params": 75008,
+      "reasoning_layer_params": 6166,
+      "config_params": {
+        "embedding_dim": 32,
+        "hidden_dim": 64,
+        "num_heads": 4,
+        "num_users": 1000,
+        "num_items": 500
+      },
+      "avg_inference_time_ms": 0.962066650390625
+    },
+    "small": {
+      "total_parameters": 885546,
+      "trainable_parameters": 885546,
+      "model_size_mb": 3.3780899047851562,
+      "embedding_layer_params": 563968,
+      "interaction_layer_params": 297472,
+      "reasoning_layer_params": 24106,
+      "config_params": {
+        "embedding_dim": 64,
+        "hidden_dim": 128,
+        "num_heads": 8,
+        "num_users": 5000,
+        "num_items": 2000
+      },
+      "avg_inference_time_ms": 0.9457826614379883
+    },
+    "medium": {
+      "total_parameters": 3659338,
+      "trainable_parameters": 3659338,
+      "model_size_mb": 13.959266662597656,
+      "embedding_layer_params": 2381312,
+      "interaction_layer_params": 1184768,
+      "reasoning_layer_params": 93258,
+      "config_params": {
+        "embedding_dim": 128,
+        "hidden_dim": 256,
+        "num_heads": 8,
+        "num_users": 10000,
+        "num_items": 5000
+      },
+      "avg_inference_time_ms": 1.1386871337890625
+    },
+    "large": {
+      "total_parameters": 24859794,
+      "trainable_parameters": 24859794,
+      "model_size_mb": 94.83258819580078,
+      "embedding_layer_params": 19760128,
+      "interaction_layer_params": 4728832,
+      "reasoning_layer_params": 370834,
+      "config_params": {
+        "embedding_dim": 256,
+        "hidden_dim": 512,
+        "num_heads": 16,
+        "num_users": 50000,
+        "num_items": 20000
+      },
+      "avg_inference_time_ms": 1.9552230834960935
+    }
+  },
+  "inference_speed": {
+    "single_prediction_avg_ms": 1.0338950157165527,
+    "single_prediction_std_ms": 0.21893068343454958,
+    "single_prediction_min_ms": 0.8366107940673828,
+    "single_prediction_max_ms": 1.7850399017333984,
+    "batch_1": 0.9130477905273438,
+    "batch_5": 1.4699935913085938,
+    "batch_10": 2.209031581878662,
+    "batch_20": 4.323840141296387,
+    "batch_50": 16.74208641052246
+  },
+  "memory_usage": {
+    "model_memory_mb": 12.25244140625,
+    "peak_memory_mb": 33.87744140625,
+    "current_memory_mb": 20.37841796875,
+    "forward_pass_memory_mb": 21.625
+  },
+  "training_efficiency": {
+    "total_training_time_s": 2.5407986640930176,
+    "training_time_per_epoch_s": 0.8469328880310059,
+    "final_train_loss": 0.13606633769070847,
+    "loss_convergence": 0.1615175223572457,
+    "dataset_size": 3000
+  },
+  "performance_summary": {
+    "meets_speed_target": true,
+    "meets_size_target": false,
+    "target_inference_time_ms": 100.0,
+    "target_model_size_mb": 10.0
+  }
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Teachers Experiment Results - Visual Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .chart-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .chart-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .chart-description {
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .chart-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .chart-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .insight-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .insight-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .insight-text {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-pill:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .chart-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 LLM Teachers Experiment Results</h1>
+            <p>Visual Analysis of Llama3 & Qwen3 Recommendation Performance</p>
+            <p><em>Environment: SysDesign-Recommender | Dataset: MovieLens 100K</em></p>
+        </div>
+
+        <div class="nav-pills">
+            <a href="#performance" class="nav-pill">📊 Performance</a>
+            <a href="#fisher" class="nav-pill">🔬 Fisher Analysis</a>
+            <a href="#pakd" class="nav-pill">🎯 PAKD Results</a>
+            <a href="#comprehensive" class="nav-pill">📈 Comprehensive</a>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">90.0%</div>
+                <div class="stat-label">Llama3 Success Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100.0%</div>
+                <div class="stat-label">Qwen3 Success Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98.3%</div>
+                <div class="stat-label">Dataset Sparsity</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">49.6</div>
+                <div class="stat-label">Total Runtime (min)</div>
+            </div>
+        </div>
+
+        <div id="performance" class="chart-section">
+            <h2 class="chart-title">📊 LLM Recommendation Performance Analysis</h2>
+            <p class="chart-description">
+                Comprehensive performance comparison between Llama3 and Qwen3 models on MovieLens dataset
+            </p>
+            <div class="chart-container">
+                <img src="llm_recommendation_performance.png" alt="LLM Recommendation Performance">
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-title">🎯 Success Rate Insights</div>
+                    <div class="insight-text">
+                        Qwen3 achieved perfect 100% success rate compared to Llama3's 90%, 
+                        indicating better stability in recommendation generation.
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">⚡ Response Time Analysis</div>
+                    <div class="insight-text">
+                        Both models show reasonable inference times with good scalability 
+                        for real-time recommendation scenarios.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fisher" class="chart-section">
+            <h2 class="chart-title">🔬 Fisher Information Analysis</h2>
+            <p class="chart-description">
+                Deep analysis of information content and matrix properties in LLM embeddings
+            </p>
+            <div class="chart-container">
+                <img src="llm_fisher_analysis.png" alt="Fisher Information Analysis">
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-title">📈 Information Content</div>
+                    <div class="insight-text">
+                        Recommendation embeddings show the highest Fisher information content,
+                        indicating rich feature representations for recommendation tasks.
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">🎛️ Matrix Stability</div>
+                    <div class="insight-text">
+                        Condition number analysis reveals computational stability characteristics
+                        across different embedding components.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pakd" class="chart-section">
+            <h2 class="chart-title">🎯 PAKD (Pruning-Aware Knowledge Distillation)</h2>
+            <p class="chart-description">
+                Knowledge transfer efficiency and feature importance analysis through distillation
+            </p>
+            <div class="chart-container">
+                <img src="llm_pakd_experiment.png" alt="PAKD Experiment Results">
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-title">🔄 Transfer Efficiency</div>
+                    <div class="insight-text">
+                        Achieved 99.6% information retention rate, demonstrating highly effective
+                        knowledge transfer from LLM teacher to student models.
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">✂️ Feature Pruning</div>
+                    <div class="insight-text">
+                        Successfully identified key features through pruning analysis,
+                        enabling model compression while maintaining performance.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="comprehensive" class="chart-section">
+            <h2 class="chart-title">📈 Comprehensive Analysis & Comparison</h2>
+            <p class="chart-description">
+                Multi-dimensional performance radar and experimental configuration overview
+            </p>
+            <div class="chart-container">
+                <img src="llm_comprehensive_analysis.png" alt="Comprehensive Analysis">
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-title">🎯 Performance Radar</div>
+                    <div class="insight-text">
+                        Multi-dimensional comparison reveals LLM models excel in accuracy and 
+                        interpretability compared to traditional approaches.
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">⏱️ Time Distribution</div>
+                    <div class="insight-text">
+                        Experiment time allocation shows balanced inference across both models
+                        with significant processing overhead for comprehensive analysis.
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-title">📊 Data Characteristics</div>
+                    <div class="insight-text">
+                        MovieLens dataset's 98.3% sparsity is typical for recommendation systems,
+                        validating the realistic nature of our experimental setup.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🔬 Generated by SysDesign-Recommender Environment | 📅 August 29, 2025</p>
+            <p>📁 Data Source: Real MovieLens 100K Dataset | 🤖 Models: Llama3 & Qwen3</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "experiment_start": "2025-08-29 17:53:09",
+  "baseline_rmse": 1.2261395163048905,
+  "distillation_rmse": 1.200554173634887,
+  "teacher_inference_time": 1.258218002319336,
+  "student_inference_time": 0.00013652706146240234,
+  "improvement": 2.086658355739791
+}

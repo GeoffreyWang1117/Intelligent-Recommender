@@ -1,0 +1,115 @@
+{
+  "fisher_matrices": {
+    "prompt_embeddings": {
+      "matrix_shape": [
+        512,
+        512
+      ],
+      "trace": 505389632.0,
+      "determinant": Infinity,
+      "condition_number": 4807.4794921875,
+      "eigenvalue_stats": {
+        "mean": 987089.125,
+        "std": 109843.6953125,
+        "max": 1000004.75,
+        "min": 208.01019287109375
+      },
+      "information_content": 7040.412109375
+    },
+    "response_embeddings": {
+      "matrix_shape": [
+        512,
+        512
+      ],
+      "trace": 504387776.0,
+      "determinant": Infinity,
+      "condition_number": 4519079.5,
+      "eigenvalue_stats": {
+        "mean": 985132.375,
+        "std": 118508.7734375,
+        "max": 1000004.125,
+        "min": 0.2212849110364914
+      },
+      "information_content": 7007.9013671875
+    },
+    "recommendation_embeddings": {
+      "matrix_shape": [
+        512,
+        512
+      ],
+      "trace": 508954688.0,
+      "determinant": Infinity,
+      "condition_number": 13618684.0,
+      "eigenvalue_stats": {
+        "mean": 994052.0,
+        "std": 76370.90625,
+        "max": 1001627.125,
+        "min": 0.07354800403118134
+      },
+      "information_content": 7035.7900390625
+    }
+  },
+  "information_analysis": {
+    "interaction_statistics": {
+      "prompt_length_stats": {
+        "mean": 2927.633333333333,
+        "std": 50.14876757098712,
+        "min": 2807,
+        "max": 3035
+      },
+      "response_length_stats": {
+        "mean": 3568.233333333333,
+        "std": 1125.8272272225236,
+        "min": 1864,
+        "max": 6467
+      },
+      "recommendation_count_stats": {
+        "mean": 9.5,
+        "std": 2.179449471770337,
+        "min": 0,
+        "max": 10
+      }
+    },
+    "information_efficiency": {
+      "prompt_response_similarity": {
+        "mean": 0.9672889798879624,
+        "std": 0.019130942446379542,
+        "correlation_strength": "strong"
+      }
+    },
+    "content_complexity": {}
+  },
+  "model_comparison": {
+    "unknown": {
+      "sample_count": 60,
+      "fisher_trace": 504390528.0,
+      "information_content": 7007.7255859375,
+      "eigenvalue_spread": 118509.4921875,
+      "dominant_eigenvalue": 1002010.5625
+    }
+  },
+  "quality_correlation": {
+    "sample_count": 57,
+    "quality_fisher_correlation": 0.0,
+    "quality_stats": {
+      "mean": 2.0,
+      "std": 0.0,
+      "range": [
+        2.0,
+        2.0
+      ]
+    },
+    "fisher_stats": {
+      "mean": 22.62741744727419,
+      "std": 4.376013748227846e-06,
+      "range": [
+        22.62740707397461,
+        22.62742805480957
+      ]
+    },
+    "correlation_interpretation": "very_weak"
+  },
+  "interaction_count": 60,
+  "embedding_dimension": 512,
+  "computation_device": "cuda"
+}

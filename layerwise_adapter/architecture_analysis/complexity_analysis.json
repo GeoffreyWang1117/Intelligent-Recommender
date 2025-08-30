@@ -1,0 +1,35 @@
+{
+  "tiny": {
+    "parameters": 441044,
+    "size_mb": 1.6824493408203125,
+    "config": {
+      "embedding_dim": 32,
+      "hidden_dim": 64,
+      "num_heads": 2,
+      "num_layers": 1
+    },
+    "flops_estimate": 355264
+  },
+  "small": {
+    "parameters": 1098406,
+    "size_mb": 4.190086364746094,
+    "config": {
+      "embedding_dim": 64,
+      "hidden_dim": 128,
+      "num_heads": 4,
+      "num_layers": 2
+    },
+    "flops_estimate": 923520
+  },
+  "medium": {
+    "parameters": 3062090,
+    "size_mb": 11.680946350097656,
+    "config": {
+      "embedding_dim": 128,
+      "hidden_dim": 256,
+      "num_heads": 8,
+      "num_layers": 3
+    },
+    "flops_estimate": 3682048
+  }
+}

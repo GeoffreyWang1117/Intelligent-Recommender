@@ -1,0 +1,117 @@
+{
+  "config": {
+    "temperature": 3.0,
+    "alpha": 0.7,
+    "pruning_ratio": 0.1,
+    "device": "cuda"
+  },
+  "data_info": {
+    "teacher_samples": 96,
+    "student_samples": 96,
+    "aligned_pairs": 96
+  },
+  "distillation_results": {
+    "distillation_loss": 0.17723889648914337,
+    "alignment_loss": 0.336387574672699,
+    "total_loss": 0.22498349845409393,
+    "information_transfer_efficiency": {
+      "correlation": 0.6023731827735901,
+      "information_retention": 0.9960344433784485,
+      "teacher_entropy": 6.67481803894043,
+      "student_entropy": 6.648348808288574
+    },
+    "teacher_output_stats": {
+      "mean": 0.9598226547241211,
+      "std": 0.642917275428772,
+      "min": -0.29322102665901184,
+      "max": 3.057692289352417,
+      "norm": 35.788330078125
+    },
+    "student_output_stats": {
+      "mean": 0.7593622207641602,
+      "std": 0.603791356086731,
+      "min": -0.18878251314163208,
+      "max": 2.0691699981689453,
+      "norm": 30.052997589111328
+    }
+  },
+  "pruning_results": {
+    "feature_importance": [
+      0.0,
+      3.2592234033151923e-12,
+      0.0,
+      0.0018266269471496344,
+      0.9747520685195923,
+      0.0,
+      0.0,
+      0.0,
+      0.023421255871653557,
+      0.0
+    ],
+    "pruning_mask": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "pruning_ratio_actual": 0.09999996423721313,
+    "pruning_performance": {
+      "teacher_info_retention": 1.0,
+      "student_info_retention": 1.0,
+      "compression_ratio": 0.9,
+      "efficiency_gain": 0.09999999999999998
+    },
+    "original_feature_count": 10,
+    "remaining_feature_count": 9
+  },
+  "evaluation_results": {
+    "recommendation_quality": {
+      "teacher_avg_quality": 1.4979166666666668,
+      "teacher_quality_std": 0.020305821551685338,
+      "student_avg_quality": 1.5,
+      "student_quality_std": 0.0,
+      "quality_retention_ratio": 1.0013908138989207
+    },
+    "model_efficiency": {
+      "parameter_reduction": 0.09999996423721313,
+      "information_retention": {
+        "teacher": 1.0,
+        "student": 1.0
+      },
+      "compression_ratio": 0.9
+    },
+    "knowledge_transfer": {
+      "feature_similarity": 0.8609490394592285,
+      "knowledge_compression_ratio": 0.7972432971000671,
+      "transfer_efficiency": 0.6863858508536111
+    }
+  },
+  "distillation_stats": {
+    "teacher_data_count": 0,
+    "student_data_count": 0,
+    "distillation_loss_history": [
+      0.22498349845409393
+    ],
+    "pruning_mask_history": [
+      [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ]
+    ],
+    "performance_metrics": {}
+  }
+}

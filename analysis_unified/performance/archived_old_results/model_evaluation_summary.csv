@@ -1,0 +1,8 @@
+Model,Performance_Grade,RMSE,MAE,Training_Time,Efficiency_Grade,Prediction_Accuracy,Coverage
+DCNv2,B,1.1852,0.9268,142.0s,D,100.0%,1.00
+AutoInt,B,1.0105,0.7711,73.8s,C,100.0%,1.00
+xDeepFM,B,1.1349,0.8643,73.1s,C,100.0%,1.00
+DIN,B,1.1140,0.8421,58.7s,B,100.0%,1.00
+DeepFM,C,1.5744,1.2388,45.4s,B,100.0%,1.00
+SVD,D,2.5331,2.3012,21.1s,A,100.0%,1.00
+Transformer4Rec,D,2.6700,2.4501,4.0s,A,100.0%,1.00

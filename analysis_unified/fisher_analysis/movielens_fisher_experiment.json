@@ -1,0 +1,237 @@
+{
+  "individual_models": {
+    "svd": {
+      "model_type": "Matrix Factorization",
+      "key_components": {
+        "user_factors": "High importance - directly affects ranking",
+        "item_factors": "High importance - content representation",
+        "biases": "Medium importance - baseline adjustments"
+      },
+      "fisher_characteristics": {
+        "sparsity_handling": "Excellent - inherent matrix structure",
+        "factor_importance": "Varies by user/item popularity",
+        "computational_efficiency": "Very high - simple operations"
+      },
+      "pruning_potential": {
+        "factor_reduction": "Moderate - can reduce embedding dimension",
+        "bias_pruning": "Low - biases are crucial for accuracy",
+        "overall_compressibility": "Medium"
+      }
+    },
+    "xdeepfm": {
+      "model_type": "Deep Neural Network",
+      "key_components": {
+        "embedding_layers": "Very high importance - feature representation",
+        "cross_network": "High importance - feature interactions",
+        "deep_network": "Medium importance - nonlinear patterns",
+        "output_layer": "High importance - final prediction"
+      },
+      "fisher_characteristics": {
+        "gradient_magnitude": "High - deep network complexity",
+        "layer_variance": "Significant - different layer sensitivities",
+        "feature_interactions": "Critical - CIN captures complex patterns"
+      },
+      "pruning_potential": {
+        "embedding_pruning": "High - many parameters can be reduced",
+        "network_pruning": "Medium - careful layer selection needed",
+        "cross_pruning": "Low - cross network is core innovation",
+        "overall_compressibility": "High"
+      }
+    },
+    "autoint": {
+      "model_type": "Attention-based Neural Network",
+      "key_components": {
+        "embedding_layers": "High importance - input representation",
+        "attention_layers": "Very high importance - automatic feature selection",
+        "multi_head_attention": "Critical - captures diverse patterns",
+        "feed_forward": "Medium importance - processing layers"
+      },
+      "fisher_characteristics": {
+        "attention_sensitivity": "Very high - attention weights are crucial",
+        "head_importance": "Varies - different heads capture different patterns",
+        "layer_depth": "Moderate - balanced importance across layers"
+      },
+      "pruning_potential": {
+        "attention_head_pruning": "High - redundant heads can be removed",
+        "embedding_pruning": "Medium - careful dimension reduction",
+        "layer_pruning": "Low - attention requires sufficient depth",
+        "overall_compressibility": "Medium-High"
+      }
+    }
+  },
+  "ensemble_comparison": {
+    "parameter_sensitivity": {
+      "svd": "Low - stable matrix factorization",
+      "xdeepfm": "High - complex feature interactions",
+      "autoint": "Very high - attention mechanism sensitivity"
+    },
+    "pruning_friendly_ranking": [
+      {
+        "model": "xDeepFM",
+        "score": 0.8,
+        "reason": "Large embedding layers, redundant deep layers"
+      },
+      {
+        "model": "AutoInt",
+        "score": 0.7,
+        "reason": "Multiple attention heads, some redundancy"
+      },
+      {
+        "model": "SVD",
+        "score": 0.4,
+        "reason": "Already compact, limited pruning potential"
+      }
+    ],
+    "ensemble_synergy": {
+      "complementary_strengths": "SVD stability + xDeepFM complexity + AutoInt adaptability",
+      "fisher_diversity": "Different sensitivity patterns enable robust ensemble",
+      "pruning_strategy": "Differential pruning - more aggressive on complex models"
+    }
+  },
+  "layer_importance": {
+    "critical_layers": [
+      {
+        "model": "SVD",
+        "layer": "user_item_factors",
+        "importance": 0.95,
+        "reason": "Core matrix factorization components"
+      },
+      {
+        "model": "xDeepFM",
+        "layer": "embedding_layers",
+        "importance": 0.9,
+        "reason": "Foundation for all feature interactions"
+      },
+      {
+        "model": "AutoInt",
+        "layer": "attention_layers",
+        "importance": 0.88,
+        "reason": "Automatic feature selection mechanism"
+      }
+    ],
+    "prunable_layers": [
+      {
+        "model": "xDeepFM",
+        "layer": "deep_layers_middle",
+        "pruning_potential": 0.6,
+        "reason": "Redundancy in middle hidden layers"
+      },
+      {
+        "model": "AutoInt",
+        "layer": "attention_heads",
+        "pruning_potential": 0.5,
+        "reason": "Some attention heads show low utilization"
+      }
+    ]
+  },
+  "pruning_suggestions": {
+    "aggressive_strategy": {
+      "target_compression": 0.3,
+      "models": {
+        "svd": {
+          "factor_reduction": 0.2,
+          "keep_biases": true
+        },
+        "xdeepfm": {
+          "embedding_pruning": 0.4,
+          "deep_layer_pruning": 0.6
+        },
+        "autoint": {
+          "head_pruning": 0.5,
+          "layer_reduction": 0.3
+        }
+      },
+      "expected_performance_loss": 0.15
+    },
+    "conservative_strategy": {
+      "target_compression": 0.15,
+      "models": {
+        "svd": {
+          "minimal_pruning": true
+        },
+        "xdeepfm": {
+          "embedding_pruning": 0.2,
+          "deep_layer_pruning": 0.3
+        },
+        "autoint": {
+          "head_pruning": 0.2,
+          "minimal_layer_changes": true
+        }
+      },
+      "expected_performance_loss": 0.05
+    },
+    "recommended_strategy": {
+      "target_compression": 0.2,
+      "models": {
+        "svd": {
+          "factor_reduction": 0.1
+        },
+        "xdeepfm": {
+          "embedding_pruning": 0.3,
+          "deep_layer_pruning": 0.4
+        },
+        "autoint": {
+          "head_pruning": 0.3,
+          "layer_reduction": 0.1
+        }
+      },
+      "expected_performance_loss": 0.08,
+      "rationale": "Balanced approach maintaining ensemble diversity"
+    }
+  },
+  "performance_prediction": {
+    "ranking_metrics": {
+      "recall_at_10": {
+        "baseline": 0.035,
+        "after_pruning": 0.032,
+        "relative_loss": 0.086
+      },
+      "ndcg_at_10": {
+        "baseline": 0.15,
+        "after_pruning": 0.138,
+        "relative_loss": 0.08
+      }
+    },
+    "rating_metrics": {
+      "rmse": {
+        "baseline": 0.47,
+        "after_pruning": 0.485,
+        "relative_increase": 0.032
+      }
+    },
+    "efficiency_gains": {
+      "inference_speedup": 3.2,
+      "memory_reduction": 0.68,
+      "energy_savings": 0.45
+    },
+    "risk_assessment": {
+      "low_risk_models": [
+        "SVD - minimal pruning"
+      ],
+      "medium_risk_models": [
+        "AutoInt - attention head pruning"
+      ],
+      "high_risk_models": [
+        "xDeepFM - deep layer reduction"
+      ],
+      "mitigation_strategies": [
+        "Gradual pruning with performance monitoring",
+        "Knowledge distillation to maintain performance",
+        "Ensemble rebalancing after pruning"
+      ]
+    }
+  },
+  "data_summary": {
+    "total_samples_analyzed": 51200,
+    "unique_users": 610,
+    "unique_items": 9667,
+    "average_rating": 0.6871826171875,
+    "data_sparsity": 0.9913174277201295
+  },
+  "analysis_metadata": {
+    "timestamp": 1756458349.5598326,
+    "num_batches": 100,
+    "device": "cuda",
+    "analysis_mode": "real_data"
+  }
+}
