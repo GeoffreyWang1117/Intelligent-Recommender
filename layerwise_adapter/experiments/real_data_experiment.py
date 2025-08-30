@@ -33,7 +33,7 @@ class RealDataExperiment:
     def __init__(self, data_path: str, experiment_name: str = "movielens_real_experiment"):
         self.data_path = data_path
         self.experiment_name = experiment_name
-        self.results_dir = f"./real_experiment_results/{experiment_name}"
+        self.results_dir = f"./evaluation/experiments/{experiment_name}"
         os.makedirs(self.results_dir, exist_ok=True)
         
         # 实验配置

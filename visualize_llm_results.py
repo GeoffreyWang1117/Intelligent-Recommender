@@ -22,7 +22,7 @@ plt.rcParams['axes.unicode_minus'] = False
 
 def load_experiment_data():
     """加载所有实验数据"""
-    base_path = Path('teachers/llm_teachers/experiment_results')
+    base_path = Path('evaluation/experiments')
     
     data = {}
     
@@ -115,7 +115,7 @@ def plot_recommendation_performance(data):
                 label, ha='center', va='bottom', fontweight='bold')
     
     plt.tight_layout()
-    plt.savefig('teachers/llm_teachers/experiment_results/llm_recommendation_performance.png', 
+    plt.savefig('evaluation/experiments/llm_recommendation_performance.png', 
                 dpi=300, bbox_inches='tight')
     print("✅ Saved: llm_recommendation_performance.png")
 
@@ -198,7 +198,7 @@ def plot_fisher_analysis(data):
                 f'{trace:.0e}', ha='center', va='bottom', fontweight='bold', fontsize=10)
     
     plt.tight_layout()
-    plt.savefig('teachers/llm_teachers/experiment_results/llm_fisher_analysis.png', 
+    plt.savefig('evaluation/experiments/llm_fisher_analysis.png', 
                 dpi=300, bbox_inches='tight')
     print("✅ Saved: llm_fisher_analysis.png")
 
@@ -282,7 +282,7 @@ def plot_pakd_experiment(data):
                 f'{imp:.3f}', ha='center', va='bottom', fontweight='bold')
     
     plt.tight_layout()
-    plt.savefig('teachers/llm_teachers/experiment_results/llm_pakd_experiment.png', 
+    plt.savefig('evaluation/experiments/llm_pakd_experiment.png', 
                 dpi=300, bbox_inches='tight')
     print("✅ Saved: llm_pakd_experiment.png")
 
@@ -373,7 +373,7 @@ def plot_comprehensive_comparison(data):
     ax4.set_title('MovieLens Dataset Sparsity', fontsize=14, fontweight='bold')
     
     plt.tight_layout()
-    plt.savefig('teachers/llm_teachers/experiment_results/llm_comprehensive_analysis.png', 
+    plt.savefig('evaluation/experiments/llm_comprehensive_analysis.png', 
                 dpi=300, bbox_inches='tight')
     print("✅ Saved: llm_comprehensive_analysis.png")
 
@@ -433,7 +433,7 @@ def create_summary_report(data):
 *Environment: SysDesign-Recommender (Conda)*
 """
     
-    with open('teachers/llm_teachers/experiment_results/VISUALIZATION_SUMMARY.md', 'w') as f:
+    with open('evaluation/experiments/VISUALIZATION_SUMMARY.md', 'w') as f:
         f.write(report)
     
     print("✅ Saved: VISUALIZATION_SUMMARY.md")
@@ -459,7 +459,7 @@ def main():
     create_summary_report(data)
     
     print("\n🎉 All visualizations completed!")
-    print("📂 Files saved in: teachers/llm_teachers/experiment_results/")
+    print("📂 Files saved in: evaluation/experiments/")
     print("   - llm_recommendation_performance.png")
     print("   - llm_fisher_analysis.png") 
     print("   - llm_pakd_experiment.png")

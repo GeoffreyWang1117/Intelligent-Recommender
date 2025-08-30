@@ -614,7 +614,7 @@ class RealMovieLensLLMRecommender:
             'student': student_data
         }
     
-    def run_comprehensive_experiment(self, output_dir: str = "experiment_results") -> Dict[str, Any]:
+    def run_comprehensive_experiment(self, output_dir: str = "evaluation/experiments") -> Dict[str, Any]:
         """运行综合实验（推荐+Fisher+PAKD）"""
         output_path = Path(output_dir)
         output_path.mkdir(exist_ok=True)

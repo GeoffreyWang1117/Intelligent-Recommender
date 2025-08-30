@@ -34,7 +34,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler('evaluation_results/complete_evaluation.log')
+        logging.FileHandler('evaluation/results/complete_evaluation.log')
     ]
 )
 logger = logging.getLogger(__name__)
@@ -47,7 +47,7 @@ class FixedCompleteEvaluator:
         self.results = {}
         self.visualization_data = {}
         self.output_dir = Path("evaluation_results")
-        self.output_dir.mkdir(exist_ok=True)
+        os.makedirs('evaluation/results', exist_ok=True)
         
         # 缓存数据
         self.train_data = None

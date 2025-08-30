@@ -227,7 +227,7 @@ def run_movielens_fisher_experiment():
     logger.info("📋 步骤5: 结果保存与展示")
     try:
         # 保存分析结果
-        save_path = '/home/coder-gw/7Projects_in_7Days/online-inference-system/analysis_results/movielens_fisher_experiment.json'
+        save_path = '/home/coder-gw/7Projects_in_7Days/online-inference-system/analysis_unified/movielens_fisher_experiment.json'
         fisher_calc.save_analysis_results(analysis_results, save_path)
         
         # 展示关键结果
@@ -291,7 +291,7 @@ def main():
     """主函数"""
     success = run_movielens_fisher_experiment()
     if success:
-        print("\n🎉 实验完成！检查analysis_results目录查看详细结果。")
+        print("\n🎉 实验完成！检查analysis_unified目录查看详细结果。")
     else:
         print("\n❌ 实验失败，请检查日志信息。")
 

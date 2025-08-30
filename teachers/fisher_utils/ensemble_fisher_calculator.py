@@ -501,7 +501,7 @@ def main():
         )
         
         # 保存结果
-        save_path = '/home/coder-gw/7Projects_in_7Days/online-inference-system/analysis_results/ensemble_fisher_analysis.json'
+        save_path = '/home/coder-gw/7Projects_in_7Days/online-inference-system/analysis_unified/ensemble_fisher_analysis.json'
         fisher_calc.save_analysis_results(analysis_results, save_path)
         
         logger.info("🎉 Ensemble Fisher分析完成！")

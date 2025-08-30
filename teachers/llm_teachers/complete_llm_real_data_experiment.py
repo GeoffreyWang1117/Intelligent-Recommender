@@ -35,7 +35,7 @@ except ImportError as e:
 class CompleteLLMRealDataExperiment:
     """完整的LLM真实数据实验"""
     
-    def __init__(self, output_dir: str = "experiment_results"):
+    def __init__(self, output_dir: str = "evaluation/experiments"):
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(exist_ok=True)
         

@@ -633,7 +633,7 @@ def main():
         )
         
         # 保存结果
-        save_path = '/home/coder-gw/7Projects_in_7Days/online-inference-system/analysis_results/pakd_experiment.json'
+        save_path = '/home/coder-gw/7Projects_in_7Days/online-inference-system/analysis_unified/pakd_experiment.json'
         pakd.save_pakd_results(results, save_path)
         
         logger.info("🎉 PAKD实验完成！")
