@@ -15,6 +15,9 @@ This document provides a comprehensive index of all development records, technic
 - **[PROJECT_MASTER_PLAN.md](PROJECT_MASTER_PLAN.md)** - 🎯 **主计划书** - 项目总体规划与实施计划
 - **[PROJECT_COMPLETION_STATUS.md](PROJECT_COMPLETION_STATUS.md)** - 项目完成状态报告 (78.3%)
 
+### 🧠 Theoretical Foundations
+- **[LAYERWISE_ADAPTER_THEORETICAL_FOUNDATIONS.md](LAYERWISE_ADAPTER_THEORETICAL_FOUNDATIONS.md)** - 🧮 **理论基础文档** - LayerwiseAdapter的贝叶斯/Fisher/可解释性理论框架
+
 ### System Architecture
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Overall system architecture
 - **[Final Architecture](docs/FINAL_ARCHITECTURE.md)** - Detailed technical specifications

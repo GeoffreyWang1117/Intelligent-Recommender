@@ -73,6 +73,9 @@
 - **[🎯 项目总体规划书](PROJECT_MASTER_PLAN.md)** - **主计划书** - 详细实施规划与时间表
 - **[📊 项目完成状态](PROJECT_COMPLETION_STATUS.md)** - 项目完成状态报告 (78.3%)
 
+### 🧠 理论基础文档
+- **[🧮 LayerwiseAdapter理论基础](LAYERWISE_ADAPTER_THEORETICAL_FOUNDATIONS.md)** - **理论框架** - 贝叶斯机器学习、Fisher信息、SHAP可解释性完整理论体系
+
 ### 🏗️ 系统架构文档
 - **[系统架构](ARCHITECTURE.md)** - 整体架构设计与技术选型
 - **[最终架构文档](docs/FINAL_ARCHITECTURE.md)** - 详细技术架构规范

@@ -80,6 +80,9 @@
 - **[🎯 PROJECT MASTER PLAN](PROJECT_MASTER_PLAN.md)** - **主计划书** - 项目总体规划与详细实施计划
 - **[📊 Project Completion Status](PROJECT_COMPLETION_STATUS.md)** - 项目完成状态报告 (78.3%)
 
+### 🧠 Theoretical Foundations  
+- **[🧮 LayerwiseAdapter Theoretical Foundations](LAYERWISE_ADAPTER_THEORETICAL_FOUNDATIONS.md)** - **理论基础** - 贝叶斯机器学习、Fisher信息、可解释性理论框架
+
 ### 🏗️ System Architecture Documentation
 - **[System Architecture](ARCHITECTURE.md)** - Overall architecture design and technology stack
 - **[Final Architecture](docs/FINAL_ARCHITECTURE.md)** - Detailed technical architecture specifications
