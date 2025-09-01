@@ -1,0 +1,88 @@
+{
+  "dataset": "MovieLens-1M",
+  "evaluation_date": "2025-08-31 11:13:28",
+  "individual_algorithms": {
+    "svd": {
+      "rmse": 2.4572609888902948,
+      "mae": 2.2016799543041174,
+      "num_predictions": 2000,
+      "recommendation_quality": {
+        "precision_at_10": 0.7300000000000001,
+        "ndcg_at_10": 0.7554779842557797,
+        "evaluated_users": 20
+      },
+      "training_time": 202.62420773506165
+    },
+    "autoint": {
+      "rmse": 0.8910395158252793,
+      "mae": 0.7027820255160332,
+      "num_predictions": 2000,
+      "recommendation_quality": {
+        "precision_at_10": 0.11500000000000002,
+        "ndcg_at_10": 0.12293816155167284,
+        "evaluated_users": 20
+      },
+      "training_time": 154.23629903793335
+    },
+    "deepfm": {
+      "rmse": 0.9322929043742816,
+      "mae": 0.7387058840990066,
+      "num_predictions": 2000,
+      "recommendation_quality": {
+        "precision_at_10": 0.015000000000000003,
+        "ndcg_at_10": 0.011233168801144578,
+        "evaluated_users": 20
+      },
+      "training_time": 93.63241696357727
+    }
+  },
+  "ensemble_baseline": {
+    "model_type": "Simple Ensemble Baseline",
+    "component_algorithms": [
+      "svd",
+      "autoint",
+      "deepfm"
+    ],
+    "ensemble_metrics": {
+      "rmse": 1.4268644696966186,
+      "mae": 1.2143892879730525,
+      "precision_at_10": 0.2866666666666667,
+      "ndcg_at_10": 0.29654977153619905
+    },
+    "individual_results": {
+      "svd": {
+        "rmse": 2.4572609888902948,
+        "mae": 2.2016799543041174,
+        "num_predictions": 2000,
+        "recommendation_quality": {
+          "precision_at_10": 0.7300000000000001,
+          "ndcg_at_10": 0.7554779842557797,
+          "evaluated_users": 20
+        },
+        "training_time": 202.62420773506165
+      },
+      "autoint": {
+        "rmse": 0.8910395158252793,
+        "mae": 0.7027820255160332,
+        "num_predictions": 2000,
+        "recommendation_quality": {
+          "precision_at_10": 0.11500000000000002,
+          "ndcg_at_10": 0.12293816155167284,
+          "evaluated_users": 20
+        },
+        "training_time": 154.23629903793335
+      },
+      "deepfm": {
+        "rmse": 0.9322929043742816,
+        "mae": 0.7387058840990066,
+        "num_predictions": 2000,
+        "recommendation_quality": {
+          "precision_at_10": 0.015000000000000003,
+          "ndcg_at_10": 0.011233168801144578,
+          "evaluated_users": 20
+        },
+        "training_time": 93.63241696357727
+      }
+    }
+  }
+}

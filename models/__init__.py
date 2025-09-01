@@ -38,7 +38,7 @@ from .deepfm import DeepFMRecommender, SimpleDeepFMRecommender
 from .autoint import AutoIntRecommender, SimpleAutoIntRecommender
 from .din import DINRecommender, SimpleDINRecommender
 from .ensemble_recommender import ExplainableRecommender
-from .optimized_ensemble import OptimizedEnsembleRecommender, create_optimized_ensemble
+# from .optimized_ensemble import OptimizedEnsembleRecommender, create_optimized_ensemble  # 模块不存在，暂时注释
 
 # 新的Teacher模型
 try:
@@ -93,8 +93,8 @@ __all__ = [
     
     # 集成推荐器
     'ExplainableRecommender',
-    'OptimizedEnsembleRecommender',
-    'create_optimized_ensemble',
+    # 'OptimizedEnsembleRecommender',  # 模块不存在，暂时注释
+    # 'create_optimized_ensemble',     # 模块不存在，暂时注释
     
     # Teacher模型
     'Transformer4RecRecommender',

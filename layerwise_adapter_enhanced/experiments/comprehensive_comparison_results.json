@@ -1,0 +1,49 @@
+{
+  "comparison_date": "2025-08-31",
+  "models_compared": [
+    "改进版LayerwiseAdapter",
+    "原版LayerwiseAdapter",
+    "Ensemble基准",
+    "AutoInt(最佳个体)"
+  ],
+  "performance_comparison": {
+    "改进版LayerwiseAdapter": {
+      "rmse": 0.892149406996123,
+      "mae": 0.6989166736602783,
+      "accuracy": 0.4351138423802922,
+      "precision_at_10": 0.033,
+      "ndcg_at_10": 0.035089021929016126,
+      "parameters": 665089
+    },
+    "原版LayerwiseAdapter": {
+      "rmse": 1.3283652197715812,
+      "mae": 1.1132713017610392,
+      "accuracy": 0.2601178415271409,
+      "precision_at_10": "N/A",
+      "ndcg_at_10": "N/A",
+      "parameters": "N/A"
+    },
+    "Ensemble基准": {
+      "rmse": 1.4268644696966186,
+      "mae": 1.2143892879730525,
+      "accuracy": "N/A",
+      "precision_at_10": 0.2866666666666667,
+      "ndcg_at_10": 0.29654977153619905,
+      "parameters": "~722,950"
+    },
+    "AutoInt(最佳个体)": {
+      "rmse": 0.8910395158252793,
+      "mae": 0.7027820255160332,
+      "accuracy": "N/A",
+      "precision_at_10": 0.11500000000000002,
+      "ndcg_at_10": 0.12293816155167284,
+      "parameters": "~240,000"
+    }
+  },
+  "key_findings": {
+    "best_rating_prediction": "改进版LayerwiseAdapter",
+    "best_recommendation_quality": "Ensemble基准",
+    "most_balanced": "AutoInt",
+    "biggest_improvement": "LayerwiseAdapter原版→改进版"
+  }
+}

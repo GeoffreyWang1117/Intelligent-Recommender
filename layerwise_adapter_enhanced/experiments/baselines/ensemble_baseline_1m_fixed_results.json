@@ -1,0 +1,30 @@
+{
+  "model_type": "ExplainableRecommender Ensemble (Fixed)",
+  "dataset": "MovieLens-1M",
+  "successful_algorithms": [
+    "svd",
+    "autoint",
+    "deepfm"
+  ],
+  "training_time_seconds": 335.0864601135254,
+  "rating_prediction": {
+    "rmse": Infinity,
+    "mae": Infinity,
+    "num_predictions": 0
+  },
+  "recommendation_quality": {
+    "precision_at_10": 0.0,
+    "ndcg_at_10": 0.0,
+    "coverage": 0.0,
+    "diversity": 0.0,
+    "evaluated_users": 0
+  },
+  "overall_metrics": {
+    "rmse": Infinity,
+    "mae": Infinity,
+    "precision_at_10": 0.0,
+    "ndcg_at_10": 0.0,
+    "coverage": 0.0,
+    "diversity": 0.0
+  }
+}

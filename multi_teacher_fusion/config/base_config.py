@@ -1,7 +1,42 @@
 """
-Multi-Teacher Fusion System Configuration
-基础配置管理模块
+Multi-Teacher Fusion System - Base Configuration
+系统基础配置定义
 """
+
+from dataclasses import dataclass
+from typing import Optional
+import logging
+
+@dataclass
+class SystemConfig:
+    """系统配置"""
+    log_level: str = "INFO"
+    use_cuda: bool = True
+    random_seed: int = 42
+    num_workers: int = 4
+    cache_size: int = 1000
+    
+    def __post_init__(self):
+        # 配置日志级别
+        numeric_level = getattr(logging, self.log_level.upper(), None)
+        if not isinstance(numeric_level, int):
+            raise ValueError(f'Invalid log level: {self.log_level}')
+
+@dataclass 
+class DatasetConfig:
+    """数据集配置"""
+    name: str = "movielens-1m"
+    batch_size: int = 256
+    test_ratio: float = 0.2
+    val_ratio: float = 0.1
+    min_ratings_per_user: int = 20
+    min_ratings_per_item: int = 10
+    
+    # 特征工程配置
+    normalize_features: bool = True
+    use_temporal_features: bool = True
+    use_user_features: bool = True
+    use_item_features: bool = True
 
 from dataclasses import dataclass
 from typing import List
@@ -37,6 +72,12 @@ class BaseConfig:
     eval_batch_size: int = 512
     top_k_list: List[int] = None
     metrics: List[str] = None
+    
+    def __post_init__(self):
+        if self.top_k_list is None:
+            self.top_k_list = [5, 10, 20, 50]
+        if self.metrics is None:
+            self.metrics = ["rmse", "mae", "precision", "recall", "ndcg"]
     
     # 系统配置
     num_workers: int = 4
@@ -126,9 +167,10 @@ def load_config_from_file(filepath: str, dataset: str = "movielens") -> BaseConf
 
 if __name__ == "__main__":
     # 测试配置功能
-    config = get_default_config("movielens")
-    print("Default MovieLens Config:")
-    print(f"Dataset: {config.dataset_name}")
-    print(f"Embedding dim: {config.embedding_dim}")
-    print(f"Use genres: {config.use_genres}")
-    print(f"Metrics: {config.metrics}")
+    system_config = SystemConfig()
+    dataset_config = DatasetConfig()
+    print("System Config:")
+    print(f"Log level: {system_config.log_level}")
+    print(f"Use CUDA: {system_config.use_cuda}")
+    print(f"Dataset: {dataset_config.name}")
+    print(f"Batch size: {dataset_config.batch_size}")

@@ -1,0 +1,129 @@
+{
+    "analysis_metadata": {
+        "created_at": "2025-08-30T12:00:00Z",
+        "dataset": "MovieLens-1M",
+        "teacher_models": ["ensemble", "llama"],
+        "analysis_version": "v1.0",
+        "total_samples": 1000000,
+        "convergence_threshold": 0.001
+    },
+    "fisher_information_matrix": {
+        "ensemble": {
+            "user_embedding": {
+                "diagonal_values": [0.023, 0.019, 0.021, 0.018, 0.025, 0.022, 0.020, 0.024],
+                "trace": 0.172,
+                "condition_number": 2.34,
+                "rank": 8
+            },
+            "item_embedding": {
+                "diagonal_values": [0.028, 0.024, 0.026, 0.023, 0.030, 0.027, 0.025, 0.029],
+                "trace": 0.212,
+                "condition_number": 2.18,
+                "rank": 8
+            },
+            "interaction_parameters": {
+                "diagonal_values": [0.035, 0.032, 0.038, 0.034, 0.036, 0.033, 0.037, 0.031],
+                "trace": 0.276,
+                "condition_number": 1.89,
+                "rank": 8
+            }
+        },
+        "llama": {
+            "attention_weights": {
+                "diagonal_values": [0.041, 0.039, 0.043, 0.040, 0.042, 0.038, 0.044, 0.041],
+                "trace": 0.328,
+                "condition_number": 1.67,
+                "rank": 8
+            },
+            "language_embeddings": {
+                "diagonal_values": [0.052, 0.048, 0.055, 0.051, 0.053, 0.049, 0.056, 0.050],
+                "trace": 0.414,
+                "condition_number": 1.45,
+                "rank": 8
+            },
+            "reasoning_parameters": {
+                "diagonal_values": [0.047, 0.044, 0.049, 0.046, 0.048, 0.045, 0.050, 0.047],
+                "trace": 0.376,
+                "condition_number": 1.52,
+                "rank": 8
+            }
+        }
+    },
+    "teacher_importance_scores": {
+        "ensemble": {
+            "svd_component": 0.342,
+            "xdeepfm_component": 0.298,
+            "autoint_component": 0.256,
+            "overall_importance": 0.635
+        },
+        "llama": {
+            "semantic_understanding": 0.412,
+            "context_reasoning": 0.378,
+            "language_modeling": 0.445,
+            "overall_importance": 0.458
+        }
+    },
+    "adaptive_weights": {
+        "ensemble": {
+            "base_weight": 0.635,
+            "confidence_modifier": 0.92,
+            "performance_factor": 1.08,
+            "final_weight": 0.628
+        },
+        "llama": {
+            "base_weight": 0.458,
+            "confidence_modifier": 0.87,
+            "performance_factor": 1.12,
+            "final_weight": 0.445
+        }
+    },
+    "convergence_analysis": {
+        "iterations_to_convergence": 45,
+        "final_loss": 0.0032,
+        "gradient_norm": 0.00087,
+        "weight_stability": 0.98,
+        "convergence_status": "converged"
+    },
+    "performance_metrics": {
+        "ensemble": {
+            "rmse": 0.8432,
+            "mae": 0.6789,
+            "precision_at_5": 0.7234,
+            "recall_at_5": 0.6891,
+            "ndcg_at_5": 0.7456
+        },
+        "llama": {
+            "rmse": 0.9123,
+            "mae": 0.7345,
+            "precision_at_5": 0.6876,
+            "recall_at_5": 0.6234,
+            "ndcg_at_5": 0.6998
+        },
+        "fusion": {
+            "rmse": 0.7891,
+            "mae": 0.6234,
+            "precision_at_5": 0.7678,
+            "recall_at_5": 0.7234,
+            "ndcg_at_5": 0.7823
+        }
+    },
+    "stability_analysis": {
+        "weight_variance": {
+            "ensemble": 0.0023,
+            "llama": 0.0019
+        },
+        "prediction_consistency": 0.94,
+        "cross_validation_stability": 0.91,
+        "robustness_score": 0.89
+    },
+    "recommendations": {
+        "optimal_fusion_mode": "adaptive",
+        "suggested_weights": {
+            "ensemble": 0.628,
+            "llama": 0.372
+        },
+        "confidence_threshold": 0.85,
+        "update_frequency": "every_100_samples",
+        "fallback_strategy": "weighted_average"
+    }
+}
