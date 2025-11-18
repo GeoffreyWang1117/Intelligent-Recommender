@@ -191,7 +191,11 @@ class RealTeacherEnsemble:
                     
                 predictions.append(pred)
                 actuals.append(row['rating'])
-            except:
+            except (KeyError, ValueError, AttributeError):
+                # 跳过无法预测的样本
+                continue
+            except Exception as e:
+                logger.debug(f"预测失败: {e}")
                 continue
         
         if len(predictions) == 0:
@@ -215,7 +219,11 @@ class RealTeacherEnsemble:
                     
                 if recs and len(recs) > 0:
                     successful_recs += 1
-            except:
+            except (KeyError, ValueError, AttributeError):
+                # 跳过失败的推荐
+                continue
+            except Exception as e:
+                logger.debug(f"推荐失败: {e}")
                 continue
         
         coverage = float(successful_recs / len(test_users))
@@ -289,15 +297,23 @@ class RealTeacherEnsemble:
                         weight = weights[model_name]
                         weighted_pred += weight * pred
                         total_weight += weight
-                    except:
+                    except (KeyError, ValueError, AttributeError):
+                        # 跳过无法预测的模型
+                        continue
+                    except Exception as e:
+                        logger.debug(f"模型预测失败 {model_name}: {e}")
                         continue
                 
                 if total_weight > 0:
                     ensemble_pred = weighted_pred / total_weight
                     predictions.append(ensemble_pred)
                     actuals.append(actual)
-                    
-            except:
+
+            except (KeyError, ValueError, IndexError):
+                # 跳过无效样本
+                continue
+            except Exception as e:
+                logger.debug(f"集成预测失败: {e}")
                 continue
         
         if len(predictions) == 0:
@@ -337,7 +353,10 @@ class RealTeacherEnsemble:
                         pred = 3.5  # 默认预测
                     
                     predictions.append(pred)
-                except:
+                except (KeyError, ValueError, AttributeError):
+                    predictions.append(3.5)  # 默认预测
+                except Exception as e:
+                    logger.debug(f"模型预测异常: {e}")
                     predictions.append(3.5)  # 默认预测
             
             model_predictions[model_name] = np.array(predictions)

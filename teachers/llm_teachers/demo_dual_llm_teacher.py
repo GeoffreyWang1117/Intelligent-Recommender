@@ -174,22 +174,26 @@ Example output:
     def _calculate_overlap(self, result1: Dict, result2: Dict) -> float:
         """计算两个推荐结果的重叠度"""
         try:
-            if (result1.get("status") != "success" or 
+            if (result1.get("status") != "success" or
                 result2.get("status") != "success"):
                 return 0.0
-            
+
             recs1 = {rec["movie_id"] for rec in result1["recommendations"]}
             recs2 = {rec["movie_id"] for rec in result2["recommendations"]}
-            
+
             if not recs1 or not recs2:
                 return 0.0
-            
+
             intersection = len(recs1 & recs2)
             union = len(recs1 | recs2)
-            
+
             return intersection / union if union > 0 else 0.0
-            
-        except:
+
+        except (KeyError, TypeError, AttributeError) as e:
+            logger.debug(f"计算重叠度失败: {e}")
+            return 0.0
+        except Exception as e:
+            logger.warning(f"计算重叠度异常: {e}")
             return 0.0
     
     def _generate_comparison_summary(self, llama3_result: Dict, qwen3_result: Dict) -> str:

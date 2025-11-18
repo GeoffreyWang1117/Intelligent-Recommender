@@ -201,7 +201,11 @@ class EnsembleRecommender:
                 weight = self.weights[name]
                 weighted_sum += weight * pred
                 total_weight += weight
-            except:
+            except (KeyError, ValueError, AttributeError):
+                # 跳过失败的模型预测
+                continue
+            except Exception as e:
+                logger.debug(f"模型 {name} 预测失败: {e}")
                 continue
         
         return weighted_sum / total_weight if total_weight > 0 else 3.5
@@ -223,7 +227,11 @@ class EnsembleRecommender:
                     if item_id not in all_candidates:
                         all_candidates[item_id] = 0
                     all_candidates[item_id] += weight * score
-            except:
+            except (KeyError, TypeError, AttributeError):
+                # 跳过失败的推荐
+                continue
+            except Exception as e:
+                logger.debug(f"推荐失败: {e}")
                 continue
         
         # 排序返回
@@ -255,7 +263,11 @@ def evaluate_model(model, test_data: pd.DataFrame, model_name: str) -> Dict[str,
                 
             predictions.append(pred)
             actuals.append(actual)
-        except:
+        except (KeyError, ValueError, IndexError):
+            # 跳过无效样本
+            continue
+        except Exception as e:
+            logger.debug(f"预测失败: {e}")
             continue
     
     if len(predictions) == 0:
@@ -277,7 +289,11 @@ def evaluate_model(model, test_data: pd.DataFrame, model_name: str) -> Dict[str,
                 continue
             if recs and len(recs) > 0:
                 successful_recs += 1
-        except:
+        except (KeyError, ValueError, AttributeError):
+            # 跳过失败的推荐
+            continue
+        except Exception as e:
+            logger.debug(f"用户 {user_id} 推荐失败: {e}")
             continue
     
     coverage = successful_recs / len(test_users)

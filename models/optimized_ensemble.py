@@ -358,12 +358,17 @@ class OptimizedEnsembleRecommender(BaseRecommender):
                         pred_score = model.predict(user_id, item_id)
                         weighted_score = pred_score * weight
                         item_scores[item_id] += weighted_score
-                        
+
                         if item_id not in item_details:
                             item_details[item_id] = {'algorithms': [], 'scores': []}
                         item_details[item_id]['algorithms'].append(algo_name)
                         item_details[item_id]['scores'].append(pred_score)
-                    except:
+                    except (KeyError, AttributeError, ValueError) as e:
+                        # 跳过无法预测的物品
+                        logger.debug(f"预测失败 {algo_name} (user={user_id}, item={item_id}): {e}")
+                        pass
+                    except Exception as e:
+                        logger.warning(f"模型预测异常 {algo_name}: {e}")
                         pass
         
         # 排序并返回top-k

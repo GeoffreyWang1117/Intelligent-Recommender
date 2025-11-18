@@ -397,7 +397,8 @@ class RealMovieLensProcessor:
                         if year_str.isdigit() and len(year_str) == 4:
                             year = int(year_str)
                             title = title.rsplit('(', 1)[0].strip()
-                    except:
+                    except (IndexError, ValueError, AttributeError):
+                        # 无法解析年份，使用默认值
                         pass
                         
                 # 解析类型

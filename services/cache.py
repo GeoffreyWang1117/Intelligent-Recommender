@@ -42,7 +42,11 @@ class CacheService:
                 return False
             self.redis_client.ping()
             return True
-        except:
+        except (redis.ConnectionError, redis.TimeoutError, AttributeError) as e:
+            logger.debug(f"Redis连接检查失败: {e}")
+            return False
+        except Exception as e:
+            logger.warning(f"Redis连接状态检查异常: {e}")
             return False
     
     def set(self, key: str, value: Any, ttl: Optional[int] = None) -> bool:

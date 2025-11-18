@@ -220,7 +220,11 @@ class TraditionalTeachersEvaluator:
                                 try:
                                     score = model.predict(user_id, item_id)
                                     predictions.append((item_id, score))
-                                except:
+                                except (KeyError, ValueError, AttributeError):
+                                    # 跳过无法预测的物品
+                                    continue
+                                except Exception as e:
+                                    logger.debug(f"预测失败 (user={user_id}, item={item_id}): {e}")
                                     continue
                             
                             # 排序并选择top-k
