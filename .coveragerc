@@ -1,0 +1,62 @@
+# Coverage configuration for Intelligent Recommender System
+
+[run]
+source = .
+omit =
+    */tests/*
+    */test_*.py
+    */__pycache__/*
+    */site-packages/*
+    */dist-packages/*
+    */venv/*
+    */env/*
+    */virtualenv/*
+    */.venv/*
+    */archives/*
+    */experiment_results/*
+    */evaluation/archived/*
+    setup.py
+    */migrations/*
+
+branch = True
+parallel = True
+
+[report]
+precision = 2
+show_missing = True
+skip_covered = False
+sort = Cover
+
+# Ignore specific lines
+exclude_lines =
+    # Standard pragmas
+    pragma: no cover
+
+    # Don't complain about missing debug code
+    def __repr__
+
+    # Don't complain if tests don't hit defensive assertion code
+    raise AssertionError
+    raise NotImplementedError
+
+    # Don't complain if non-runnable code isn't run
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    if typing.TYPE_CHECKING:
+
+    # Don't complain about abstract methods
+    @abstract
+    @abc.abstractmethod
+
+    # Don't complain about pass statements
+    pass
+
+    # Don't complain about ellipsis
+    \.\.\.
+
+[html]
+directory = htmlcov
+title = Intelligent Recommender Coverage Report
+
+[xml]
+output = coverage.xml
