@@ -1,0 +1,49 @@
+{
+  "dashboard": {
+    "title": "Intelligent Recommender System",
+    "tags": ["recommendation", "api"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total[5m])",
+            "legendFormat": "{{method}} {{path}}"
+          }
+        ]
+      },
+      {
+        "title": "Response Time P95",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "P95"
+          }
+        ]
+      },
+      {
+        "title": "Cache Hit Rate",
+        "type": "gauge",
+        "targets": [
+          {
+            "expr": "rate(cache_hits_total[5m]) / rate(cache_requests_total[5m])",
+            "legendFormat": "Hit Rate"
+          }
+        ]
+      },
+      {
+        "title": "Model Inference Latency",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(model_inference_duration_seconds_bucket[5m]))",
+            "legendFormat": "P95"
+          }
+        ]
+      }
+    ]
+  }
+}

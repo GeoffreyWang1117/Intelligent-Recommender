@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: intelligent-recommender
+  labels:
+    app: intelligent-recommender
+    version: v1.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: intelligent-recommender
+  template:
+    metadata:
+      labels:
+        app: intelligent-recommender
+        version: v1.0
+    spec:
+      containers:
+      - name: recommender-api
+        image: intelligent-recommender:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
+        env:
+        - name: REDIS_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: recommender-config
+              key: redis_host
+        - name: REDIS_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: recommender-config
+              key: redis_port
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: recommender-secrets
+              key: redis_password
+              optional: true
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: recommender-config
+              key: log_level
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 2
+        volumeMounts:
+        - name: model-storage
+          mountPath: /app/models/saved
+          readOnly: true
+      volumes:
+      - name: model-storage
+        persistentVolumeClaim:
+          claimName: model-storage-pvc
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: model-storage-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard

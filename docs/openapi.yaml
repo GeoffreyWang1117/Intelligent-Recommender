@@ -1,0 +1,420 @@
+openapi: 3.0.3
+info:
+  title: Intelligent Recommender System API
+  description: |
+    RESTful API for the Intelligent Recommender System.
+
+    This API provides endpoints for:
+    - User recommendations
+    - Similar item discovery
+    - Health checks
+    - Model information
+
+    **Authentication**: API Key (future implementation)
+
+    **Rate Limiting**: 100 requests per minute per IP
+
+  version: 1.0.0
+  contact:
+    name: Geoffrey Wang
+    url: https://github.com/GeoffreyWang1117/Intelligent-Recommender
+  license:
+    name: CC BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+servers:
+  - url: http://localhost:5000
+    description: Local development server
+  - url: https://api.recommender.example.com
+    description: Production server
+
+tags:
+  - name: health
+    description: Health check and status endpoints
+  - name: recommendations
+    description: Recommendation generation endpoints
+  - name: similar
+    description: Similar item discovery
+  - name: model
+    description: Model information and management
+
+paths:
+  /health:
+    get:
+      tags:
+        - health
+      summary: Health check endpoint
+      description: Returns the health status of the API service
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+              example:
+                status: healthy
+                services:
+                  svd_model: true
+                  faiss_index: true
+                timestamp: '2025-01-01T12:00:00Z'
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /recommend:
+    get:
+      tags:
+        - recommendations
+      summary: Get user recommendations
+      description: Returns personalized recommendations for a specific user
+      operationId: getRecommendations
+      parameters:
+        - name: user_id
+          in: query
+          required: true
+          description: User ID for whom to generate recommendations
+          schema:
+            type: integer
+            minimum: 1
+          example: 123
+        - name: top_k
+          in: query
+          required: false
+          description: Number of recommendations to return
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+          example: 10
+      responses:
+        '200':
+          description: Successful response with recommendations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecommendationsResponse'
+              example:
+                user_id: 123
+                recommendations:
+                  - item_id: 456
+                    score: 4.5
+                    title: "The Matrix"
+                    genres: "Action|Sci-Fi"
+                    year: 1999
+                  - item_id: 789
+                    score: 4.2
+                    title: "Inception"
+                    genres: "Action|Sci-Fi|Thriller"
+                    year: 2010
+                count: 2
+                timestamp: '2025-01-01T12:00:00Z'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "user_id parameter must be provided"
+                timestamp: '2025-01-01T12:00:00Z'
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /similar:
+    get:
+      tags:
+        - similar
+      summary: Get similar items
+      description: Returns items similar to a specific item
+      operationId: getSimilarItems
+      parameters:
+        - name: item_id
+          in: query
+          required: true
+          description: Item ID for which to find similar items
+          schema:
+            type: integer
+            minimum: 1
+          example: 456
+        - name: top_k
+          in: query
+          required: false
+          description: Number of similar items to return
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+          example: 5
+      responses:
+        '200':
+          description: Successful response with similar items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimilarItemsResponse'
+              example:
+                item_id: 456
+                item_info:
+                  title: "The Matrix"
+                  genres: "Action|Sci-Fi"
+                similar_items:
+                  - item_id: 789
+                    score: 0.95
+                    title: "Inception"
+                    genres: "Action|Sci-Fi|Thriller"
+                  - item_id: 101
+                    score: 0.89
+                    title: "Blade Runner"
+                    genres: "Sci-Fi|Thriller"
+                count: 2
+                timestamp: '2025-01-01T12:00:00Z'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /info:
+    get:
+      tags:
+        - model
+      summary: Get model information
+      description: Returns information about the recommendation model
+      operationId: getModelInfo
+      responses:
+        '200':
+          description: Successful response with model information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelInfoResponse'
+              example:
+                model_type: "SVD"
+                n_components: 50
+                n_users: 943
+                n_items: 1682
+                has_faiss_index: true
+                timestamp: '2025-01-01T12:00:00Z'
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - timestamp
+      properties:
+        status:
+          type: string
+          enum: [healthy, unhealthy]
+          description: Overall service health status
+        services:
+          type: object
+          description: Status of individual services
+          properties:
+            svd_model:
+              type: boolean
+            faiss_index:
+              type: boolean
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the response
+
+    RecommendationsResponse:
+      type: object
+      required:
+        - user_id
+        - recommendations
+        - count
+        - timestamp
+      properties:
+        user_id:
+          type: integer
+          description: User ID for whom recommendations were generated
+        recommendations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recommendation'
+        count:
+          type: integer
+          description: Number of recommendations returned
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the response
+
+    Recommendation:
+      type: object
+      required:
+        - item_id
+        - score
+      properties:
+        item_id:
+          type: integer
+          description: Item ID
+        score:
+          type: number
+          format: float
+          description: Recommendation score (0-5 scale)
+        title:
+          type: string
+          description: Item title
+        genres:
+          type: string
+          description: Item genres (pipe-separated)
+        year:
+          type: integer
+          nullable: true
+          description: Release year
+        genre_list:
+          type: array
+          items:
+            type: string
+          description: List of genres
+
+    SimilarItemsResponse:
+      type: object
+      required:
+        - item_id
+        - similar_items
+        - count
+        - timestamp
+      properties:
+        item_id:
+          type: integer
+          description: Item ID for which similarities were computed
+        item_info:
+          $ref: '#/components/schemas/ItemInfo'
+        similar_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarItem'
+        count:
+          type: integer
+          description: Number of similar items returned
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the response
+
+    SimilarItem:
+      type: object
+      required:
+        - item_id
+        - score
+      properties:
+        item_id:
+          type: integer
+          description: Item ID
+        score:
+          type: number
+          format: float
+          description: Similarity score (0-1 scale)
+        title:
+          type: string
+          description: Item title
+        genres:
+          type: string
+          description: Item genres
+        year:
+          type: integer
+          nullable: true
+          description: Release year
+        genre_list:
+          type: array
+          items:
+            type: string
+
+    ItemInfo:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Item title
+        genres:
+          type: string
+          description: Item genres
+
+    ModelInfoResponse:
+      type: object
+      required:
+        - model_type
+        - timestamp
+      properties:
+        model_type:
+          type: string
+          description: Type of recommendation model
+          example: "SVD"
+        n_components:
+          type: integer
+          description: Number of latent factors/components
+        n_users:
+          type: integer
+          description: Number of users in the model
+        n_items:
+          type: integer
+          description: Number of items in the model
+        has_faiss_index:
+          type: boolean
+          description: Whether FAISS index is available
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the response
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - timestamp
+      properties:
+        error:
+          type: string
+          description: Error message
+        message:
+          type: string
+          description: Detailed error message
+        available_endpoints:
+          type: array
+          items:
+            type: string
+          description: List of available endpoints (for 404 errors)
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the response
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key for authentication (future implementation)
+
+security:
+  - ApiKeyAuth: []
